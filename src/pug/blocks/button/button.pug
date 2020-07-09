@@ -1,0 +1,7 @@
+mixin button(text,cl,submit,link)
+    if submit
+        button.button(type="submit" class= cl)= text
+    else if link
+        a.button(class= cl href= link)= text
+    else
+        .button(class= cl)= text

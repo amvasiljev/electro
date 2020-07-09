@@ -1,0 +1,14 @@
+mixin header()
+	header.header
+		.header__inner
+			.header__box
+				+logo('/assets/img/logo.png','','logo_header')
+			.header__box
+				+address()
+				+worktime()
+				+search()
+			.header__box
+				.header__call
+					+phone()
+					a.header__callback.lazy(href="javascript:;"  data-fancybox="" data-src="/assets/img/phone.svg") Позвоните мне
+				+button('Калькулятор','button_red','','/')

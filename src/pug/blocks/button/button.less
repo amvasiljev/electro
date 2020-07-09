@@ -1,0 +1,28 @@
+.button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 5px;
+    padding: 0 30px;
+    .rem(14);
+    font-weight: 500;
+    line-height: 100%;
+    color: @wt;
+    transition: all 0.3s;
+
+    &_red{
+        background: @button_c;
+        box-shadow: @button;
+        &:hover,&:focus{
+            background: @button_hover;
+            box-shadow: @button_h;
+            transition: all 0.3s;
+        }
+        &:active{
+            background: @button_active;
+            box-shadow: @button_a;
+            transition: all 0.3s;
+        }
+    }
+}
