@@ -57,15 +57,36 @@ var closeMenuFixed = $('<div>').addClass('nav__close_fixed');
 burgerFixed.on('click', function () {
   if ($('.nav_fixed').length > 0) {
     
-    $('.nav_fixed').slideUp(400);
+    $('.nav_fixed').fadeOut(400);
     setTimeout(function(){
       $('.nav_fixed').remove()
     },400)
     console.log('close');
   } else {
     $('<div>').addClass('nav_fixed').appendTo('.header_fixed').append(fixedMenu);
-    $('.nav_fixed').slideDown(400)
-    console.log('open');
+    $('<div>').addClass('nav__other').appendTo($('.nav_fixed'))
+    $('<div>').addClass('nav__other_1').appendTo($('.nav__other'));
+    $('<div>').addClass('nav__other_2').appendTo($('.nav__other'));
+    $('.nav__other').before($('<div>').addClass('nav__title').text('Навигация'))
+
+    $('.nav_fixed').fadeIn(400).css('display','flex')
+
+
+    $('.nav_fixed > .nav__item').each(function(indx){
+        if(indx != 1){
+          $(this).appendTo($('.nav__other'))
+        }
+    })
+
+    $('.nav__other > .nav__item').each(function(indx){
+      if($(this).hasClass('nav__item_group')){
+        $(this).addClass('nav__item_simple').appendTo($('.nav__other_2'))
+      }else{
+        $(this).addClass('nav__item_simple').appendTo($('.nav__other_1'))
+      }
+    })
+
+
   }
   $('body').addClass('stop_scrolling ')
   
