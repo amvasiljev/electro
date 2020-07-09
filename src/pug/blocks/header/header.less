@@ -1,6 +1,10 @@
 .header{
     width: 100%;
     
+    &_fixed{
+        position: fixed;
+        box-shadow: @box_fixed;
+    }
 
     &__inner{
         height: 151px;
@@ -13,7 +17,10 @@
         flex-flow: wrap;
         justify-content: space-between;
 
-
+        &_fixed{
+            height: 100px;
+            
+        }
 
     }
     &__box{
@@ -22,6 +29,10 @@
         flex-flow: wrap;
         align-items: center;
         justify-content: flex-start;
+        
+        &_fixed{
+            width: auto;
+        }
     }
     &__call{
         display: flex;
