@@ -27,6 +27,25 @@ function inputActive(elem,cl){
 
 // inputs
 
+
+
+$('.nav__item_group').hover(
+  function () {
+    $(this).find('.nav_level_2').dequeue().stop(true, true).fadeIn(300)
+  },
+  function () {
+    $(this).find('.nav_level_2').dequeue().stop(true, true).fadeOut(300)
+  }
+)
+$('.nav_level_2 .nav__item_group').hover(
+  function () {
+    $(this).find('.nav_level_3').dequeue().stop(true, true).fadeIn(300)
+  },
+  function () {
+    $(this).find('.nav_level_3').dequeue().stop(true, true).fadeOut(300)
+  }
+)
+
 //mobile menu
 
 // var burger = $('.burger');
