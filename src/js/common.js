@@ -7,6 +7,7 @@ $(function () {
 // inputs
 
 inputActive('.search', 'search__input_active');
+inputActive('.order', 'order__input_active');
 
 function inputActive(elem, cl) {
   $(elem).on('focus', 'input[type="text"]', function () {
@@ -24,7 +25,12 @@ function inputActive(elem, cl) {
 }
 
 
-
+$('.order__input_phone').mask('+7 (000) 000-00-00', {
+  placeholder: "+7 (000) 000-00-00"
+});
+// $('.feedback__input_phone').mask('+7 (000) 000-00-00', {
+//   placeholder: "+7 (___) ___-__-__"
+// });
 // inputs
 
 
