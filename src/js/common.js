@@ -113,7 +113,7 @@ if (windowHeight > 1080) {
       burgerFixed.addClass('burger_fixed')
       $('.header__box').addClass('header__box_fixed')
 
-
+      $('section').eq(0).css('paddingTop','211')
 
 
 
@@ -127,6 +127,8 @@ if (windowHeight > 1080) {
       burgerFixed.removeClass('burger_fixed')
       $('.header__box').removeClass('header__box_fixed')
       $('.nav_fixed').remove()
+
+      $('section').eq(0).css('paddingTop','0')
     }
 
   })

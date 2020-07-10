@@ -5,6 +5,9 @@
         position: relative;
 
     }
+    &_services{
+        background-color: @bg;
+    }
 
     &__inner {
         width: 100%;
@@ -26,7 +29,12 @@
     }
 
     &__box{
-
+        width: 100%;
+        &_services{
+            display: flex;
+            flex-flow: wrap;
+            justify-content: space-between;
+        }
         &_main{
             width: 100%;
             max-width: 1170px;
