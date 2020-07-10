@@ -1,0 +1,44 @@
+.step {
+    width: 170px;
+
+    &:last-child {
+        padding-left: 60px;
+        box-sizing: content-box;
+    }
+
+    &__image {
+        height: 64px;
+        width: 64px;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: contain;
+        margin-bottom: 17px;
+    }
+
+    &__content {
+        display: flex;
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            left: 0;
+            bottom: -10px;
+            background-color: @bl;
+            border-radius: 5px;
+        }
+    }
+
+    &__number {
+        font-weight: 500;
+        .rem(16);
+    }
+
+    &__text {
+        font-weight: 500;
+        .rem(16);
+    }
+}

@@ -26,6 +26,11 @@
 
         }
 
+        &_tabs{
+            position: relative;
+        }
+        
+
     }
 
     &__box{
@@ -45,6 +50,26 @@
             align-items: flex-end;
             margin: 0 auto;
             padding: 0;
+        }
+        &_text{
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        &_steps{
+            display: flex;
+            flex-flow: wrap;
+            justify-content: space-between;
+            padding: 80px 60px 100px 60px;
+        }
+    }
+
+    &__tab{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        visibility: hidden;
+        &_active{
+            visibility: visible;
         }
     }
 
