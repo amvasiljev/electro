@@ -188,15 +188,17 @@ $(document).on('click', '.nav__item', function () {
 // slider 
 
 
-// $('.slider__box').slick({
-//   lazyload: 'ondemand',
-//   // infinite: false,
-//   fade: true,
-//   cssEase: 'linear',
-//   nextArrow: '<div class="slider__arrow slider__arrow_next">',
-//   prevArrow: '<div class="slider__arrow slider__arrow_prev">',
-//   // appendArrows: $('.slider__arrows'),
-// })
+$('.slider_main').slick({
+  lazyload: 'ondemand',
+  // infinite: false,
+  fade: true,
+  cssEase: 'linear',
+  arrows: false,
+  dots: true,
+  // nextArrow: '<div class="slider__arrow slider__arrow_next">',
+  // prevArrow: '<div class="slider__arrow slider__arrow_prev">',
+  // appendDots: $('.section_main .section__dots'),
+})
 
 
 // slider 

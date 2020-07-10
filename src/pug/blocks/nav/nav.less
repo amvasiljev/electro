@@ -6,6 +6,7 @@
     padding: 0;
     display: flex;
     justify-content: space-between;
+    z-index: 100;
 
     &_level_2 {
         flex-direction: column;
@@ -23,7 +24,7 @@
         .nav__item {
             height: 52px;
             padding: 0 66px 0 54px;
-            position: unset;
+            position: unset;  // разные типы выпадания третьего меню
 
             &:hover {
                 background-color: @bl2;
@@ -97,9 +98,10 @@
         max-width: 1170px;
         margin: 0 auto;
         flex-flow: wrap;
-        overflow: auto;
+        // overflow: auto;
         align-items: flex-start;
         padding-bottom: 20px;
+        
 
         .nav__item {
             height: unset;

@@ -1,11 +1,44 @@
-.section{
+.section {
     width: 100%;
-    &__inner{
+
+    &_main {
+        position: relative;
+
+    }
+
+    &__inner {
         width: 100%;
         max-width: 1170px;
         margin: 0 auto;
         padding: 0;
 
-        height: 1500px
+        &_main {
+            max-width: 100%;
+
+            position: absolute;
+            width: 100%;
+            top: 200px;
+            left: 0;
+           
+
+        }
+
     }
+
+    &__box{
+
+        &_main{
+            width: 100%;
+            max-width: 1170px;
+            height: 0;
+            display: flex;
+            flex-flow: wrap;
+            justify-content: flex-end;
+            align-items: flex-end;
+            margin: 0 auto;
+            padding: 0;
+        }
+    }
+
+    
 }
