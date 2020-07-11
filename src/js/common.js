@@ -251,6 +251,17 @@ $('.slider__box_rev').slick({
   appendArrows: $('.slider__arrows_rev'),
 });
 
+$('.slider__box_team').slick({
+  lazyLoad: 'ondemand',
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  // adaptiveHeight: true,
+  nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next.png" alt="">',
+  prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
+  appendArrows: $('.slider__arrows_team'),
+});
+
 
 // tabs
 
@@ -277,11 +288,23 @@ $('.tabs').on('click', 'a', function(e){
 
 // tabs
 
-// slider 
 
-// news
-// $('.news').last().addClass('news_final');
-// news
+
+// worker
+
+$('.worker').hover(
+  function(){
+    $(this).find('.worker__background').addClass('worker__background_active')
+    $(this).find('.worker__profile').addClass('worker__profile_active')
+  },
+  function(){
+    $(this).find('.worker__background').removeClass('worker__background_active')
+    $(this).find('.worker__profile').removeClass('worker__profile_active')
+  }
+)
+
+
+// end worker
 
 
 // products
@@ -292,7 +315,9 @@ $('.tabs').on('click', 'a', function(e){
 //   })
 // }
 
-//products
+
+
+
 
 
 // map 
@@ -308,16 +333,16 @@ var myMapTemp, myPlacemarkTemp;
 
 function init() {
     var myMapTemp = new ymaps.Map("map-yandex", {
-        center: [55.771104, 37.589913],
+        center: [55.811614, 37.456738],
         zoom: 15,
         controls: ['zoomControl', 'fullscreenControl'],
     });
     myMapTemp.behaviors.disable("scrollZoom");
-    var myPlacemarkTemp = new ymaps.Placemark([55.771104, 37.589913], {
+    var myPlacemarkTemp = new ymaps.Placemark([55.811614, 37.456738], {
         balloonContent: "Здесь может быть ваш адрес",
     }, {
         iconLayout: 'default#imageWithContent',
-        iconImageHref: '/assets/img/pin.svg',
+        iconImageHref: '/assets/img/location.svg',
         iconImageSize: [50, 50],
         iconImageOffset: [-25, -50],
     });

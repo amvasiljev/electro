@@ -1,0 +1,52 @@
+.worker {
+    height: 416px;
+    display: flex !important;
+    flex-direction: column;
+    margin: 0 20px;
+
+    &__image {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center 100%;
+        flex: 1;
+        position: relative;
+    }
+
+    &__background {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 54px);
+        background-color: @bg;
+        z-index: -1;
+        display: flex;
+        align-items: flex-end;
+        transition: all 0.1s;
+        padding: 17px 20px;
+
+        &_active{
+            background: @worker;
+            z-index: 0;
+            transition: all 0.1s;
+
+        }
+    }
+    &__profile{
+        display: none;
+        transition: 0.3s;
+        .rem(14);
+        line-height: 21px;
+        font-weight: normal;
+        &_active{
+            display: block;
+            color: @wt;
+            transition: 0.3s;
+        }
+    }
+    &__name{
+        .rem(16);
+        font-weight: 500;
+        margin-top: 10px;
+    }
+}
