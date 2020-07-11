@@ -1,0 +1,14 @@
+mixin contact_box()
+    .contact-preview
+        .contact-preview__inner
+            .contact-preview__box
+                .contact-preview__title Наши контакты
+                .contact-preview__item 
+                    .contact-preview__name Адрес
+                    +address('address_contacts')
+                .contact-preview__item 
+                    .contact-preview__name График работы
+                    +worktime('worktime_contacts')
+                .contact-preview__item 
+                    .contact-preview__name Номер телефона
+                    +phone('phone_contacts')

@@ -1,0 +1,48 @@
+.advantage {
+    width: calc(33% - 15px);
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+
+
+    &__inner {
+        width: 140px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__image {
+        height: 64px;
+        width: 90px;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: contain;
+        margin-bottom: 17px;
+    }
+
+    &__content {
+        display: flex;
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            left: 0;
+            bottom: -10px;
+            background-color: @wt;
+            border-radius: 5px;
+        }
+    }
+
+
+
+    &__text {
+        font-weight: 500;
+        .rem(16);
+        color: @wt;
+
+    }
+}

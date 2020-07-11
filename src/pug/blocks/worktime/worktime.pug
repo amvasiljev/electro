@@ -1,9 +1,33 @@
-mixin worktime()
-    .worktime
-        div
-            span Пн-Пт
-            |09:00 - 18:00
-        div
-            span Сб-Вс
-            |10:00 - 16:00
+mixin worktime(cl,list)
+    if list
+        .worktime(class= cl)
+            .worktime__item
+                span Понедельник
+                |09:00 - 18:00
+            .worktime__item
+                span Вторник
+                |09:00 - 18:00
+            .worktime__item
+                span Среда
+                |09:00 - 18:00
+            .worktime__item
+                span Четверг
+                |09:00 - 18:00
+            .worktime__item
+                span Пятница
+                |09:00 - 18:00
+            .worktime__item
+                span Суббота
+                |10:00 - 16:00
+            .worktime__item
+                span Воскресенье
+                |10:00 - 16:00
+    else
+        .worktime(class= cl)
+            .worktime__item
+                span Пн-Пт
+                |09:00 - 18:00
+            .worktime__item
+                span Сб-Вс
+                |10:00 - 16:00
         
