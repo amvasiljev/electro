@@ -8,6 +8,9 @@
     &_services{
         background-color: @bg;
     }
+    &_steps{
+        background-color: @bg;
+    }
     &_advantages{
         height: 730px;
     }
@@ -16,22 +19,32 @@
         width: 100%;
         max-width: 1170px;
         margin: 0 auto;
-        padding: 0;
+        padding: 100px 0;
 
         &_main {
             max-width: 100%;
-
+            padding: 0;
             position: absolute;
             width: 100%;
             top: 130px;
             left: 0;
-           
+        
+        }
 
+        &_steps{
+            padding-bottom: 0;
         }
 
         &_tabs{
             position: relative;
-            height: 500px;
+            height: 600px;
+            padding-top: 60px;
+        }
+
+        &_team{
+            margin-top: -70px;
+            background-color: @wt;
+            padding-bottom: 0;
         }
         
 
@@ -43,6 +56,7 @@
             display: flex;
             flex-flow: wrap;
             justify-content: space-between;
+            margin-bottom: -30px;
         }
         &_main{
             width: 100%;
@@ -58,17 +72,20 @@
         &_text{
             max-width: 960px;
             margin: 0 auto;
+            padding: 0 0 40px 0;
         }
         &_steps{
             display: flex;
             flex-flow: wrap;
             justify-content: space-between;
             padding: 80px 60px 100px 60px;
+            background-color: @wt;
         }
         &_advantages{
             display: flex;
             flex-flow: wrap;
             justify-content: space-between;
+            padding: 20px 0 90px;
         }
     }
 

@@ -8,6 +8,9 @@ $(function () {
 
 inputActive('.search', 'search__input_active');
 inputActive('.order', 'order__input_active');
+inputActive('.feedback', 'feedback__input_active');
+
+
 
 function inputActive(elem, cl) {
   $(elem).on('focus', 'input[type="text"]', function () {
@@ -25,12 +28,23 @@ function inputActive(elem, cl) {
 }
 
 
+  $('.feedback__textarea').on('focus', function () {
+    $(this).addClass('feedback__textarea_active');
+   
+  })
+  $('.feedback__textarea').on('blur', function () {
+    $(this).removeClass('feedback__textarea_active');
+    
+  })
+
+
 $('.order__input_phone').mask('+7 (000) 000-00-00', {
   placeholder: "+7 (000) 000-00-00"
 });
-// $('.feedback__input_phone').mask('+7 (000) 000-00-00', {
-//   placeholder: "+7 (___) ___-__-__"
-// });
+$('.feedback__input_phone').mask('+7 (000) 000-00-00', {
+  placeholder: "+7 (000) 000-00-00"
+});
+
 // inputs
 
 
@@ -121,7 +135,7 @@ if (windowHeight > 1080) {
       $('.header__box').addClass('header__box_fixed')
 
       $('section').eq(0).css('paddingTop','211')
-
+      $('.section__inner_main').css('top','341')
 
 
     } else {
@@ -136,6 +150,7 @@ if (windowHeight > 1080) {
       $('.nav_fixed').remove()
 
       $('section').eq(0).css('paddingTop','0')
+      $('.section__inner_main').css('top','130')
     }
 
   })

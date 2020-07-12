@@ -1,0 +1,16 @@
+mixin feedback()
+    .feedback.lazy(data-src="/assets/img/bg_form.png")
+        .feedback__heading
+            .feedback__title Оставьте заявку и получите бесплатную консультацию специалиста
+            .feedback__subtitle с 5 группой допуска по электробезопасности
+        form(action="/").feedback__form
+            input(type="text" placeholder="Ваше имя").feedback__input
+            input(type="text" placeholder="E-mail").feedback__input
+            input(type="text").feedback__input.feedback__input_phone
+            input(type="text" placeholder="Адрес проведения работ").feedback__input
+            textarea(name="text", cols="30", rows="10" placeholder="Комментарий").feedback__textarea
+            .feedback__policy 
+                span Отправляя форму, Вы принимаете
+                a(href="/").feedback__link Соглашение о конфиденциальности
+            +button('Отправить заявку','button_red button_center','submit')
+            

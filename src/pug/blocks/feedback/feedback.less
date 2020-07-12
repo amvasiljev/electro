@@ -1,0 +1,103 @@
+.feedback{
+
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-color: @bl;
+    height: 430px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    padding: 60px 100px 60px 60px;
+
+    &__heading{
+        width: calc(45% - 15px);
+    }
+    &__title{
+        .rem(30);
+        font-weight: 500;
+        line-height: 120%;
+        color: @wt;
+        margin-bottom: 18px;
+    }
+    &__subtitle{
+        .rem(16);
+        color: @wt;
+        line-height: 150%;
+    }
+
+    &__form{
+        width: calc(55% - 15px);
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+    }
+    &__input{
+        width: calc(50% - 5px);
+        margin-bottom: 10px;
+        background-color: @bg;
+        height: 50px;
+        border-radius: 5px;
+        padding: 0 20px 0 10px;
+        
+        &::placeholder{
+            .rem(14);
+            color: @grey;
+
+        }
+
+        &_active{
+            background: @feedback_active;
+            &::placeholder{
+                color: @bl;
+            }
+        }
+    }
+    &__textarea{
+        width: 100%;
+        background-color: @bg;
+        border-radius: 5px;
+        padding: 20px 20px 0 10px;
+        margin-bottom: 10px;
+        height: 96px;
+        &::placeholder{
+            .rem(14);
+            color: @grey;
+
+        }
+        &_active{
+            background: @feedback_active;
+            &::placeholder{
+                color: @bl;
+            }
+        }
+    }
+    &__policy {
+        margin-bottom: 12px;
+        span {
+            .rem(12);
+            color: @consent;
+            margin-right: 5px;
+        }
+
+    }
+    &__link{
+        color: @wt;
+        .rem(12);
+        position: relative;
+        &:before{
+            position: absolute;
+            content:'';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: @wt;
+            bottom: -2px;
+            right: 0;
+           
+        }
+    }
+
+
+}
