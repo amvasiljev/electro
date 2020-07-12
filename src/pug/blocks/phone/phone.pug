@@ -1,2 +1,5 @@
-mixin phone(cl)
-    a.phone(class= cl href="tel:+79000000000") +7 (900) 000-00-00
+mixin phone(cl,img)
+    if img
+        a.phone.lazy(class= cl href="tel:+79000000000" data-src="/assets/img/phone_footer.svg") +7 (900) 000-00-00
+    else
+        a.phone(class= cl href="tel:+79000000000") +7 (900) 000-00-00

@@ -1,4 +1,25 @@
 mixin footer()
     footer.footer
         .footer__inner
-            
+            .footer__box
+                +logo('','/assets/img/logo_footer.png','logo_footer',)
+                .footer__links
+                    a(href="/").footer__link Мы на портале поставщиков
+                    a(href="/").footer__link Политика конфиденциальности
+                    a(href="/").footer__link Карта сайта
+                .footer__copyright © 2020 - Все права защищены
+                
+            .footer__box
+                +nav_footer()
+            .footer__box
+                +nav_footer_1()
+            .footer__box
+                .footer__buttons
+                    +button('Перезвоните мне','button_grey','','','#popup')
+                    +button('Калькулятор','button_transparent','','/','')
+                .footer__contacts
+                    +address('address_footer','img')
+                    +phone('phone_footer','img')
+                   
+                    +whatsapp('whatsapp_footer','img')
+                    +email('email_footer','img')

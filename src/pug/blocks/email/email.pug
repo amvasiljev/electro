@@ -1,0 +1,5 @@
+mixin email(cl,img)
+    if img
+        a.email.lazy(class= cl href="mailto:info@elaba24.ru" data-src="/assets/img/email_footer.svg") info@elaba24.ru
+    else
+        a.email(class= cl href="mailto:info@elaba24.ru") info@elaba24.ru

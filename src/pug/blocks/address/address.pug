@@ -1,2 +1,5 @@
-mixin address(cl)
-    .address(class= cl) Москва, Полесский проезд, д.16, офис 307
+mixin address(cl,img)
+    if img
+        .address.lazy(class= cl data-src="/assets/img/geo.svg") Москва, Полесский проезд, д.16, офис 307
+    else
+        .address(class= cl) Москва, Полесский проезд, д.16, офис 307

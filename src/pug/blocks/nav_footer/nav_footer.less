@@ -1,0 +1,23 @@
+.nav-footer{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    &__title{
+        color: @copyright;
+        .rem(14);
+        font-weight: 500;
+        &:focus,&:hover,&:active{
+            color: @copyright;
+        }
+    }
+    &__item{
+        color: @grey;
+        .rem(12);
+        font-weight: normal;
+        &:focus,&:hover,&:active{
+            color: @grey;
+        }
+    }
+}

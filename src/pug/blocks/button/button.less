@@ -1,5 +1,5 @@
 .button{
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
@@ -10,6 +10,7 @@
     line-height: 100%;
     color: @wt;
     transition: all 0.3s;
+    max-width: 375px;
 
     &_red{
         background: @button_c;
@@ -26,10 +27,52 @@
         }
     }
 
+    &_grey{
+        width: 160px;
+        background-color: @button_3;
+        color: @grey;
+        padding: 0;
+        .rem(12);
+        margin-right: 10px;
+        &:hover,&:focus{
+            background: @button_3_hover;
+            box-shadow: unset;
+            transition: all 0.3s;
+        }
+        &:active{
+            background: @button_3_active;
+            box-shadow: unset;
+            transition: all 0.3s;
+        }
+    }
+    &_transparent{
+        background-color: transparent;
+        border: 2px solid @red;
+        .rem(12);
+        &:hover,&:focus{
+            background: @button_2_hover;
+            box-shadow: unset;
+            transition: all 0.3s;
+            border: none;
+            border: 2px solid @button_2_hover;
+        }
+        &:active{
+            background: @button_2_active;
+            box-shadow: unset;
+            transition: all 0.3s;
+            border: none;
+            border: 2px solid @button_2_active;
+        }
+    }
+
+
+
     &_submit{
         width: 100%;
     }
     &_center{
         margin: 0 auto;
     }
+
+
 }

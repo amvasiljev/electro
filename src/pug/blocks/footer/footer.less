@@ -1,3 +1,69 @@
 .footer {
-  
+    width: 100%;
+    background: @bk;
+
+    &__inner{
+        max-width: 1170;
+        width: 100%;
+        margin: 0 auto;
+        padding: 40px 0;
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+    }
+
+    &__box{
+        &:not(:first-child){
+            margin-left: 60px;
+        }
+        max-width: 20%;
+        display: flex;
+        flex-direction: column;
+
+        &:last-child{
+            align-items: flex-end;
+            max-width: 25%;
+            ;
+        }
+    }
+
+    &__links{
+        margin: 20px 0 65px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 72px;
+        justify-content: space-between;
+
+    }
+    &__link{
+        color: @grey;
+        .rem(12);
+        font-weight: normal;
+        &:focus,&:hover,&:active{
+            color: @grey;
+        }
+    }
+    &__copyright{
+        color: @copyright;
+        font-weight: normal;
+        .rem(12);
+        &:focus,&:hover,&:active{
+            color: @copyright;
+        }
+    }
+
+
+    &__buttons{
+        display: flex;
+    }
+
+    &__contacts{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px 0 0 0;
+    }
 }
