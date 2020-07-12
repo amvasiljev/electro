@@ -1,0 +1,86 @@
+.nav-side{
+    width: 100%;
+    background-color: @sidebar;
+    border-radius: 5px;
+
+    &_level{
+        &_2{
+            padding: 10px 15px;
+            display: none;
+        }
+    }
+
+    &_active{
+        display: block;
+    }
+
+
+    &__item{
+        margin-bottom: 10px;
+        
+        &_group{
+            
+            padding: 8px 25px;
+            margin: 0;
+            
+        }
+        &_group:not(:last-of-type){
+            border-bottom: 1px solid @line;
+        }
+    }
+    &__link{
+
+        .rem(14);
+        color: @grey;
+
+        display: flex;
+        width: 100%;
+        &:hover,&:focus,&:active{
+            color: @bk;
+        }
+
+        &_group{
+            .rem(16);
+            font-weight: normal;
+            color: @bk;
+            position: relative;
+            
+            &:hover,&:focus,&:active{
+                color: @red;
+            }
+
+            
+
+            &:before{
+                content:'';
+                display: block;
+                width: 12px;
+                height: 12px;
+                background-image: url(/assets/img/arrow_down.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;
+                
+                position: absolute;
+                top: 10px;
+                right: 0;
+            }
+
+            &_active{
+                color: @red;
+                &:before{
+                    background-image: url(/assets/img/arrow_up.svg);
+                }
+            }
+        }
+        
+        &_active{
+            color: @bk;
+        }
+
+      
+        
+    }
+
+
+}

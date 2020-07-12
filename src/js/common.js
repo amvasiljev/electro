@@ -28,14 +28,14 @@ function inputActive(elem, cl) {
 }
 
 
-  $('.feedback__textarea').on('focus', function () {
-    $(this).addClass('feedback__textarea_active');
-   
-  })
-  $('.feedback__textarea').on('blur', function () {
-    $(this).removeClass('feedback__textarea_active');
-    
-  })
+$('.feedback__textarea').on('focus', function () {
+  $(this).addClass('feedback__textarea_active');
+
+})
+$('.feedback__textarea').on('blur', function () {
+  $(this).removeClass('feedback__textarea_active');
+
+})
 
 
 $('.order__input_phone').mask('+7 (000) 000-00-00', {
@@ -67,6 +67,29 @@ $('.nav_level_2 .nav__item_group').hover(
 )
 
 
+// nav_side
+
+
+$('.nav-side__link_group').on('click', function (e) {
+  if ($(this).next('.nav-side_level_2').length > 0) {
+    e.preventDefault()
+    
+    var menuLevel2 = $(this).next('.nav-side_level_2')
+
+    $('.nav-side__link_group').removeClass('nav-side__link_group_active')
+    $(this).addClass('nav-side__link_group_active')
+    
+    
+    $('.nav-side_level_2').not(menuLevel2).slideUp(300);
+    menuLevel2.slideDown(300);
+
+  } else {
+    return;
+  }
+})
+
+
+// nav_side
 
 
 var burgerFixed = $('.burger');
@@ -76,15 +99,15 @@ var closeMenuFixed = $('<div>').addClass('nav__close_fixed');
 
 
 burgerFixed.on('click', function () {
-  
+
   if ($('.nav_fixed').length > 0) {
-    
+
     $(this).removeClass('burger_close')
 
     $('.nav_fixed').fadeOut(400);
-    setTimeout(function(){
+    setTimeout(function () {
       $('.nav_fixed').remove()
-    },400)
+    }, 400)
     console.log('close');
   } else {
 
@@ -96,19 +119,19 @@ burgerFixed.on('click', function () {
     $('<div>').addClass('nav__other_2').appendTo($('.nav__other'));
     $('.nav__other').before($('<div>').addClass('nav__title').text('Навигация'))
 
-    $('.nav_fixed').fadeIn(400).css('display','flex')
+    $('.nav_fixed').fadeIn(400).css('display', 'flex')
 
 
-    $('.nav_fixed > .nav__item').each(function(indx){
-        if(indx != 1){
-          $(this).appendTo($('.nav__other'))
-        }
+    $('.nav_fixed > .nav__item').each(function (indx) {
+      if (indx != 1) {
+        $(this).appendTo($('.nav__other'))
+      }
     })
 
-    $('.nav__other > .nav__item').each(function(indx){
-      if($(this).hasClass('nav__item_group')){
+    $('.nav__other > .nav__item').each(function (indx) {
+      if ($(this).hasClass('nav__item_group')) {
         $(this).addClass('nav__item_simple').appendTo($('.nav__other_2'))
-      }else{
+      } else {
         $(this).addClass('nav__item_simple').appendTo($('.nav__other_1'))
       }
     })
@@ -116,7 +139,7 @@ burgerFixed.on('click', function () {
 
   }
   $('body').addClass('stop_scrolling ')
-  
+
 })
 
 
@@ -134,8 +157,8 @@ if (windowHeight > 1080) {
       burgerFixed.addClass('burger_fixed')
       $('.header__box').addClass('header__box_fixed')
 
-      $('section').eq(0).css('paddingTop','211')
-      $('.section__inner_main').css('top','341')
+      $('section').eq(0).css('paddingTop', '211')
+      $('.section__inner_main').css('top', '341')
 
 
     } else {
@@ -149,8 +172,8 @@ if (windowHeight > 1080) {
       $('.header__box').removeClass('header__box_fixed')
       $('.nav_fixed').remove()
 
-      $('section').eq(0).css('paddingTop','0')
-      $('.section__inner_main').css('top','130')
+      $('section').eq(0).css('paddingTop', '0')
+      $('.section__inner_main').css('top', '130')
     }
 
   })
@@ -277,24 +300,35 @@ $('.slider__box_team').slick({
   appendArrows: $('.slider__arrows_team'),
 });
 
+$('.slider__box_work').slick({
+  lazyLoad: 'ondemand',
+  speed: 300,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  // adaptiveHeight: true,
+  nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next.png" alt="">',
+  prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
+  appendArrows: $('.slider__arrows_work'),
+});
+
 
 // tabs
 
-$('.section__tab').each(function(){
-  if(($(this).hasClass('section__tab_active')) == false){
+$('.section__tab').each(function () {
+  if (($(this).hasClass('section__tab_active')) == false) {
     $(this).fadeOut()
   }
 })
 
 
-$('.tabs').on('click', 'a', function(e){
+$('.tabs').on('click', 'a', function (e) {
   e.preventDefault()
 
   $('.tabs__item').removeClass('tabs__item_active')
   $(this).addClass('tabs__item_active')
 
   var id = $(this).attr('href')
-  
+
   var tabSlider = $(id)
   $('.section__tab').not(tabSlider).fadeOut().removeClass('section__tab_active')
   tabSlider.fadeIn().addClass('section__tab_active')
@@ -308,11 +342,11 @@ $('.tabs').on('click', 'a', function(e){
 // worker
 
 $('.worker').hover(
-  function(){
+  function () {
     $(this).find('.worker__background').addClass('worker__background_active')
     $(this).find('.worker__profile').addClass('worker__profile_active')
   },
-  function(){
+  function () {
     $(this).find('.worker__background').removeClass('worker__background_active')
     $(this).find('.worker__profile').removeClass('worker__profile_active')
   }
@@ -338,104 +372,104 @@ $('.worker').hover(
 // map 
 
 
-$(function(){
-  
+$(function () {
 
 
-var spinner = $('.ymap-container').children('.loader');
-var check_if_load = false;
-var myMapTemp, myPlacemarkTemp;
 
-function init() {
+  var spinner = $('.ymap-container').children('.loader');
+  var check_if_load = false;
+  var myMapTemp, myPlacemarkTemp;
+
+  function init() {
     var myMapTemp = new ymaps.Map("map-yandex", {
-        center: [55.811614, 37.456738],
-        zoom: 15,
-        controls: ['zoomControl', 'fullscreenControl'],
+      center: [55.811614, 37.456738],
+      zoom: 15,
+      controls: ['zoomControl', 'fullscreenControl'],
     });
     myMapTemp.behaviors.disable("scrollZoom");
     var myPlacemarkTemp = new ymaps.Placemark([55.811614, 37.456738], {
-        balloonContent: "Здесь может быть ваш адрес",
+      balloonContent: "Здесь может быть ваш адрес",
     }, {
-        iconLayout: 'default#imageWithContent',
-        iconImageHref: '/assets/img/location.svg',
-        iconImageSize: [50, 50],
-        iconImageOffset: [-25, -50],
+      iconLayout: 'default#imageWithContent',
+      iconImageHref: '/assets/img/location.svg',
+      iconImageSize: [50, 50],
+      iconImageOffset: [-25, -50],
     });
     myMapTemp.geoObjects.add(myPlacemarkTemp);
     var layer = myMapTemp.layers.get(0).get(0);
     waitForTilesLoad(layer).then(function () {
-        spinner.removeClass('is-active');
+      spinner.removeClass('is-active');
     });
-}
+  }
 
-function waitForTilesLoad(layer) {
+  function waitForTilesLoad(layer) {
     return new ymaps.vow.Promise(function (resolve, reject) {
-        var tc = getTileContainer(layer),
-            readyAll = true;
-        tc.tiles.each(function (tile, number) {
-            if (!tile.isReady()) {
-                readyAll = false;
-            }
+      var tc = getTileContainer(layer),
+        readyAll = true;
+      tc.tiles.each(function (tile, number) {
+        if (!tile.isReady()) {
+          readyAll = false;
+        }
+      });
+      if (readyAll) {
+        resolve();
+      } else {
+        tc.events.once("ready", function () {
+          resolve();
         });
-        if (readyAll) {
-            resolve();
-        } else {
-            tc.events.once("ready", function () {
-                resolve();
-            });
-        }
+      }
     });
-}
+  }
 
-function getTileContainer(layer) {
+  function getTileContainer(layer) {
     for (var k in layer) {
-        if (layer.hasOwnProperty(k)) {
-            if (
-                layer[k] instanceof ymaps.layer.tileContainer.CanvasContainer ||
-                layer[k] instanceof ymaps.layer.tileContainer.DomContainer
-            ) {
-                return layer[k];
-            }
+      if (layer.hasOwnProperty(k)) {
+        if (
+          layer[k] instanceof ymaps.layer.tileContainer.CanvasContainer ||
+          layer[k] instanceof ymaps.layer.tileContainer.DomContainer
+        ) {
+          return layer[k];
         }
+      }
     }
     return null;
-}
+  }
 
-function loadScript(url, callback) {
+  function loadScript(url, callback) {
     var script = document.createElement("script");
 
     if (script.readyState) { // IE
-        script.onreadystatechange = function () {
-            if (script.readyState == "loaded" ||
-                script.readyState == "complete") {
-                script.onreadystatechange = null;
-                callback();
-            }
-        };
+      script.onreadystatechange = function () {
+        if (script.readyState == "loaded" ||
+          script.readyState == "complete") {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
     } else {
-        script.onload = function () {
-            callback();
-        };
+      script.onload = function () {
+        callback();
+      };
     }
 
     script.src = url;
     document.getElementsByTagName("head")[0].appendChild(script);
-}
+  }
 
 
-var ymap = function () {
+  var ymap = function () {
     $('.ymap-container').mouseenter(function () {
-        if (!check_if_load) {
-            check_if_load = true;
-            spinner.addClass('is-active');
-            loadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;loadByRequire=1", function () {
-                ymaps.load(init);
-            });
-        }
+      if (!check_if_load) {
+        check_if_load = true;
+        spinner.addClass('is-active');
+        loadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;loadByRequire=1", function () {
+          ymaps.load(init);
+        });
+      }
     });
-}
+  }
 
-$(function () {
+  $(function () {
     ymap();
-});
+  });
 })
