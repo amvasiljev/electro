@@ -65,6 +65,26 @@
         }
     }
 
+    &_blue{
+        background-color: transparent;
+        border: 2px solid @bl;
+        color: @bl;
+        display: inline-flex;
+        height: 44px;
+        transition: all 0.3s;
+        &:hover,&:focus{
+            background: @bl;
+            color: @wt;
+            transition: all 0.3s;
+        }
+        &:active{
+            background-color: @button_1_active;
+            border: 2px solid @button_1_active;
+            color: @wt;
+            transition: all 0.3s;
+        }
+    }
+
 
 
     &_submit{
@@ -72,6 +92,11 @@
     }
     &_center{
         margin: 0 auto;
+    }
+    &_absolute{
+        position: absolute;
+        bottom: 0;
+        right: 0;
     }
 
 

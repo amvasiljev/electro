@@ -1,0 +1,33 @@
+.action-preview{
+
+    &__inner{
+        display: flex;
+        flex-flow: wrap;
+        padding: 33px 0;
+        border-bottom: 1px solid @line;
+    }
+    &__image{
+        width: 260px;
+        height: 180px;
+        flex: 0 0 260px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        border-radius: 5px;
+    }
+    &__content{
+        margin-left: 40px;
+        width: calc(100% - 300px);
+        position: relative;
+    }
+    &__title{
+        margin-bottom: 15px;
+        font-weight: 500;
+        .rem(24);
+        
+    }
+    &__text{
+        .rem(16);
+        line-height: 28px;
+    }
+}
