@@ -1,7 +1,12 @@
-mixin worker()
-    .worker
-        
-        .worker__image.lazy(data-src="/assets/img/man.png")
-            .worker__background
-                .worker__profile Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, quibusdam.
-        .worker__name Контантин Константинопольский
+mixin worker(cl,page)
+    if page
+        .worker(class= cl)
+            .worker__image.lazy(data-src="/assets/img/man.png")
+                .worker__background
+    else
+        a(href="/").worker(class= cl)
+            
+            .worker__image.lazy(data-src="/assets/img/man.png")
+                .worker__background
+                    .worker__profile Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, quibusdam.
+            .worker__name Контантин Константинопольский

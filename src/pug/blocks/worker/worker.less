@@ -4,6 +4,17 @@
     flex-direction: column;
     margin: 0 20px;
 
+    &_page{
+        width: calc(33% - 20px);
+        margin: 0;
+        height: 490px;
+    }
+    &_single{
+        width: 358px;
+        height: 402px;
+        float: left;
+    }
+
     &__image {
         background-repeat: no-repeat;
         background-size: contain;
@@ -38,15 +49,43 @@
         .rem(14);
         line-height: 21px;
         font-weight: normal;
+        
         &_active{
             display: block;
             color: @wt;
             transition: 0.3s;
+        }
+        &_show{
+            .rem(14);
+            color: @grey;
+            line-height: 22px;
+            display: block;
+            padding: 10px 0;
         }
     }
     &__name{
         .rem(16);
         font-weight: 500;
         margin-top: 10px;
+        color: @bk;
+    }
+    &__exp{
+        display: inline-block;
+        margin-top: 50px;
+        margin-bottom: 10px;
+        .rem(16);
+        color: @bk;
+        span{
+            font-weight: 500;
+        }
+
+    }
+    &__edu{
+        margin-bottom: 35px;
+        .rem(16);
+        color: @bk;
+        span{
+            font-weight: 500;
+        }
     }
 }

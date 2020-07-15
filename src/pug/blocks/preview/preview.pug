@@ -1,3 +1,3 @@
-mixin preview(image,text)
-    a(href="/").preview.lazy(data-src= image)
+mixin preview(image,text,cl)
+    a.preview.lazy(class= cl href="/" data-src= image)
         .preview__title= text

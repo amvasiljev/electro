@@ -1,4 +1,8 @@
-mixin sidebar()
+mixin sidebar(team)
     .sidebar
-        +nav_side()
-        +action_list()
+        if team
+            +nav_side_1()
+        else
+            +nav_side()
+            +action_list()
+        
