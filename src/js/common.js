@@ -365,8 +365,60 @@ $('.worker').hover(
 // }
 
 
+// table_mobile
+
+windowWidth = $(window).width();
+if (windowWidth <= 550){
+  
+
+  var cellFirst = $('.table th')
+  
+  cellFirst.each(function(indx){
+    
+  
+    var elem = $(this).html();
+    
+    var index = indx;
+  
+    $('.table tr').each(function(){
+      
+      var cell = $(this).find('td');
+      
+      cell.each(function(indx){
+        
+         if(indx == index && indx != 0){
+          var fake =  $('<div>').addClass('table__cell_fake')
+          fake.prependTo($(this))
+          fake.append(elem)
+          
+         }
+      })
+    })
+    
+  })
 
 
+  $('.table__row').eq(0).hide()
+  $('.table tr').eq(0).hide()
+}
+
+
+
+
+
+
+
+// table_mobile
+
+
+// questions
+
+$('.questions__item').on('click', function(){
+  $(this).next('.questions__answer').slideToggle()
+  $(this).toggleClass('questions__item_active')
+})
+
+// questions
 
 
 // map 

@@ -11,8 +11,18 @@
     justify-content: space-between;
     padding: 60px 100px 60px 60px;
 
+    &_author{
+        height: 340px;
+        padding: 50px 60px 60px 40px;
+        background-position: center center;
+        justify-content: space-between;
+    }
+
     &__heading{
         width: calc(45% - 15px);
+        &_author{
+            width: 435px;
+        }
     }
     &__title{
         .rem(30);
@@ -32,6 +42,14 @@
         display: flex;
         flex-flow: wrap;
         justify-content: space-between;
+
+        &_author{
+            width: 260px;
+            flex-direction: column;
+            flex: 0 0 260px;
+            justify-content: space-between;
+            
+        }
     }
     &__input{
         width: calc(50% - 5px);
@@ -40,6 +58,9 @@
         height: 50px;
         border-radius: 5px;
         padding: 0 20px 0 10px;
+        &_author{
+            width: 100%;
+        }
         
         &::placeholder{
             .rem(14);
@@ -74,6 +95,8 @@
         }
     }
     &__policy {
+        display: flex;
+        flex-flow:wrap;
         margin-bottom: 12px;
         span {
             .rem(12);

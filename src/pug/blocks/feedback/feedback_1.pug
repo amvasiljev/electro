@@ -1,0 +1,16 @@
+mixin feedback_1()
+    .feedback.feedback_author.lazy(data-src="/assets/img/bg_form.png")
+        +author()
+            
+        .feedback__heading.feedback__heading_author
+            .feedback__title Оставьте заявку и получите бесплатную консультацию специалиста
+            
+        form(action="/").feedback__form.feedback__form_author
+            .feedback__group
+                input(type="text" placeholder="Ваше имя").feedback__input.feedback__input_author
+                input(type="text").feedback__input.feedback__input_phone.feedback__input_author
+            .feedback__policy 
+                span Отправляя форму, Вы принимаете
+                a(href="/").feedback__link Соглашение о конфиденциальности
+            +button('Отправить заявку','button_red','submit')
+            

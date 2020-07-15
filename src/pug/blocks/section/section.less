@@ -5,23 +5,27 @@
         position: relative;
 
     }
-    &_services{
-        background-color: @bg;
-    }
-    &_steps{
-        background-color: @bg;
-    }
-    &_advantages{
-        height: 730px;
-    }
-    &_work{
+
+    &_services {
         background-color: @bg;
     }
 
-    &_content{
+    &_steps {
+        background-color: @bg;
+    }
+
+    &_advantages {
+        height: 730px;
+    }
+
+    &_work {
+        background-color: @bg;
+    }
+
+    &_content {
         padding-left: 40px;
     }
-    
+
 
     &__inner {
         width: 100%;
@@ -36,20 +40,20 @@
             width: 100%;
             top: 130px;
             left: 0;
-        
+
         }
 
-        &_steps{
+        &_steps {
             padding-bottom: 0;
         }
 
-        &_tabs{
+        &_tabs {
             position: relative;
             height: 600px;
             padding-top: 60px;
         }
 
-        &_team{
+        &_team {
             margin-top: -70px;
             background-color: @wt;
             padding-bottom: 0;
@@ -58,23 +62,25 @@
 
 
 
-        &_wrapper{
+        &_wrapper {
             padding: 0 0 72px 0;
             display: flex;
         }
-        
+
 
     }
 
-    &__box{
+    &__box {
         width: 100%;
-        &_services{
+
+        &_services {
             display: flex;
             flex-flow: wrap;
             justify-content: space-between;
             margin-bottom: -30px;
         }
-        &_main{
+
+        &_main {
             width: 100%;
             max-width: 1170px;
             height: 0;
@@ -85,27 +91,30 @@
             margin: 0 auto;
             padding: 0;
         }
-        &_text{
+
+        &_text {
             max-width: 960px;
             margin: 0 auto;
             padding: 0 0 40px 0;
         }
-        
-        &_steps{
+
+        &_steps {
             display: flex;
             flex-flow: wrap;
             justify-content: space-between;
             padding: 80px 60px 100px 60px;
             background-color: @wt;
         }
-        &_advantages{
+
+        &_advantages {
             display: flex;
             flex-flow: wrap;
             justify-content: space-between;
             padding: 20px 0 90px;
         }
-        &_content{
-            img{
+
+        &_content {
+            img {
                 float: left;
                 margin: 10px 40px 10px 0;
                 height: 180px;
@@ -113,18 +122,137 @@
                 object-fit: cover;
                 border-radius: 5px;
             }
+
+            ul {
+                margin-bottom: 30px;
+
+                li {
+                    .rem(16);
+                    font-weight: 500;
+                    height: 64px;
+                    padding: 20px 0 20px 28px;
+                    position: relative;
+                    border-bottom: 1px solid @line;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        width: 8px;
+                        height: 8px;
+                        background-color: @red;
+                        top: 25px;
+                        left: 0;
+                        position: absolute;
+                    }
+                }
+            }
+            ol {
+                margin-bottom: 30px;
+                list-style-type: none;
+                counter-reset: li;
+
+                li {
+                    .rem(16);
+                    font-weight: 500;
+                    height: 64px;
+                    padding: 20px 0 20px 34px;
+                    position: relative;
+                    border-bottom: 1px solid @line;
+                    
+
+                    &:before {
+                        content: counter(li, decimal-leading-zero)'.';
+                        counter-increment: li;
+                        color: @red;
+                        font-weight: 500;
+                        position: absolute;
+                        top: 17px;
+                        left: 0;
+                        .rem(20);
+                    }
+                }
+            }
+        }
+
+        &_publication {
+            img {
+                float: left;
+                margin: 10px 40px 10px 0;
+                height: 300px;
+                width: 460px;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+
+            ul {
+                margin-bottom: 30px;
+
+                li {
+                    .rem(16);
+                    font-weight: 500;
+                    height: 64px;
+                    padding: 20px 0 20px 28px;
+                    position: relative;
+                    border-bottom: 1px solid @line;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        width: 8px;
+                        height: 8px;
+                        background-color: @red;
+                        top: 25px;
+                        left: 0;
+                        position: absolute;
+                    }
+                }
+            }
+
+            ol {
+                margin-bottom: 30px;
+                list-style-type: none;
+                counter-reset: li;
+
+                li {
+                    .rem(16);
+                    font-weight: 500;
+                    height: 64px;
+                    padding: 20px 0 20px 34px;
+                    position: relative;
+                    border-bottom: 1px solid @line;
+                    
+
+                    &:before {
+                        content: counter(li, decimal-leading-zero)'.';
+                        counter-increment: li;
+                        color: @red;
+                        font-weight: 500;
+                        position: absolute;
+                        top: 17px;
+                        left: 0;
+                        .rem(20);
+                    }
+                }
+            }
+        }
+
+        &_questions {
+            display: flex;
+            flex-flow: wrap;
+            justify-content: space-between;
         }
     }
 
-    &__tab{
+    &__tab {
         position: absolute;
         width: 100%;
         left: 0;
         visibility: hidden;
-        &_active{
+
+        &_active {
             visibility: visible;
         }
     }
 
-    
+
 }
