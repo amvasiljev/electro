@@ -1,7 +1,9 @@
-mixin sidebar(team)
+mixin sidebar(team,graf)
     .sidebar
         if team
             +nav_side_1()
+        else if graf
+            +contact_box('side')
         else
             +nav_side()
             +action_list()

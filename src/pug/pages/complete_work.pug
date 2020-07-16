@@ -4,24 +4,23 @@ extends ../layout/main
 
 
 block variables
-    -var title = 'articles'
-    -var description = 'articles'
+    -var title = 'complete work'
+    -var description = 'complete work'
     
 
 block content
     +bread()
     section.section.section_wrapper
         .section__inner.section__inner_wrapper
-            
+            +sidebar('team')
             section.section.section_content
-                +title('Статьи','title_page')
+                +title('Выполненные работы','title_page')
                 .section__box
                     +action_preview('link')
                     +action_preview('link')
                     +action_preview('link')
                     +action_preview('link')
                     +action_preview('link')
-                    
     
     
     +section_7()

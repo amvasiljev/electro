@@ -18,7 +18,8 @@
     &__content{
         margin-left: 40px;
         width: calc(100% - 300px);
-        position: relative;
+        display: flex;
+        flex-direction: column;
     }
     &__title{
         margin-bottom: 15px;
@@ -31,5 +32,11 @@
         .rem(16);
         line-height: 28px;
         color: @bk;
+    }
+    &__link{
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+        align-items: flex-end;
     }
 }

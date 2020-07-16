@@ -320,6 +320,16 @@ $('.slider__box_office').slick({
   prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
   appendArrows: $('.slider__arrows_office'),
 });
+$('.slider__box_docs').slick({
+  lazyLoad: 'ondemand',
+  speed: 300,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  // adaptiveHeight: true,
+  nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next.png" alt="">',
+  prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
+  appendArrows: $('.slider__arrows_docs'),
+});
 
 
 // tabs

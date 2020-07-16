@@ -1,14 +1,31 @@
-mixin contact_box()
-    .contact-preview
-        .contact-preview__inner
-            .contact-preview__box
-                .contact-preview__title Наши контакты
-                .contact-preview__item 
-                    .contact-preview__name Адрес
-                    +address('address_contacts')
-                .contact-preview__item 
-                    .contact-preview__name График работы
-                    +worktime('worktime_contacts')
-                .contact-preview__item 
-                    .contact-preview__name Номер телефона
-                    +phone('phone_contacts')
+mixin contact_box(side)
+    if side
+        .contact-preview.contact-preview_side
+            .contact-preview__inner
+                .contact-preview__box.contact-preview__box_side
+                    .contact-preview__title Контакты
+                    .contact-preview__subtitle Как с нами связаться
+                    .contact-preview__item 
+                        .contact-preview__name Адрес
+                        +address('address_contacts')
+                    .contact-preview__item 
+                        .contact-preview__name График работы
+                        +worktime('worktime_side','list')
+                    .contact-preview__item 
+                        .contact-preview__name Номер телефона
+                        +phone('phone_contacts')
+                        +phone('phone_contacts')
+    else
+        .contact-preview
+            .contact-preview__inner
+                .contact-preview__box
+                    .contact-preview__title Наши контакты
+                    .contact-preview__item 
+                        .contact-preview__name Адрес
+                        +address('address_contacts')
+                    .contact-preview__item 
+                        .contact-preview__name График работы
+                        +worktime('worktime_contacts')
+                    .contact-preview__item 
+                        .contact-preview__name Номер телефона
+                        +phone('phone_contacts')
