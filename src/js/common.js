@@ -10,7 +10,7 @@ inputActive('.search', 'search__input_active');
 inputActive('.order', 'order__input_active');
 inputActive('.feedback', 'feedback__input_active');
 inputActive('.popup','popup__input_active')
-
+inputActive('.calc-input','calc-input__value_active')
 
 function inputActive(elem, cl) {
   $(elem).on('focus', 'input[type="text"]', function () {
