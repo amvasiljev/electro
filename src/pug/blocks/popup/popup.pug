@@ -1,0 +1,17 @@
+mixin popup()
+    .popup#popup_form
+        
+        .popup__title Заказать обратный звонок 
+        form(action="/").popup__form
+        input(type="text" placeholder="Ваше имя").popup__input
+        input(type="text").popup__input.popup__input_phone
+        input(type="text" placeholder="E-mail").popup__input
+
+        .popup__policy 
+            span Отправляя форму, Вы принимаете
+            a(href="/").popup__link Соглашение о конфиденциальности
+        +button('Заказать звонок','button_red button_submit','submit')
+
+    .popup.popup_thank#popup_thank
+        
+        .popup__title Спасибо! Ваша заявка принята
