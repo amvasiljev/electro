@@ -3,18 +3,24 @@ mixin contact_box(side)
         .contact-preview.contact-preview_side
             .contact-preview__inner
                 .contact-preview__box.contact-preview__box_side
-                    .contact-preview__title Контакты
+                    +title('Контакты','title_page')
                     .contact-preview__subtitle Как с нами связаться
                     .contact-preview__item 
                         .contact-preview__name Адрес
                         +address('address_contacts')
-                    .contact-preview__item 
-                        .contact-preview__name График работы
-                        +worktime('worktime_side','list')
+                    
                     .contact-preview__item 
                         .contact-preview__name Номер телефона
                         +phone('phone_contacts')
                         +phone('phone_contacts')
+                    
+                    .contact-preview__item 
+                        .contact-preview__name Реквизиты
+                        +worktime('worktime_side','','org')
+
+                    .contact-preview__item 
+                        .contact-preview__name График работы
+                        +worktime('worktime_side','list')
     else
         .contact-preview
             .contact-preview__inner

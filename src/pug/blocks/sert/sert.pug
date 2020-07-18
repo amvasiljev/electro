@@ -1,3 +1,7 @@
-mixin sert(cl)
-    a(href="/assets/img/sert_1.png" data-fancybox="image").sert(class= cl)
-        img.lazy(data-src="/assets/img/sert_1.png" alt="")
+mixin sert(cl,group)
+    if group
+        a(href="/assets/img/sert_1.png" data-fancybox= group).sert(class= cl)
+            img.lazy(data-src="/assets/img/sert_1.png" alt="")
+    else
+        a(href="/assets/img/sert_1.png" data-fancybox="image").sert(class= cl)
+            img.lazy(data-src="/assets/img/sert_1.png" alt="")

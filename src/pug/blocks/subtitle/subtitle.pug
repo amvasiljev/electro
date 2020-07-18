@@ -1,3 +1,7 @@
-mixin subtitle(text,cl)
-    .subtitle(class= cl)
-        h2= text
+mixin subtitle(text,cl,img)
+    if img
+        .subtitle(class= cl)
+            h2.lazy(data-src= img)= text
+    else
+        .subtitle(class= cl)
+            h2= text

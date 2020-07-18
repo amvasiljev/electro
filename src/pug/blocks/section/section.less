@@ -28,6 +28,10 @@
     &_office{
         background: @foto;
     }
+    &_map{
+        padding: 98px 0 0 40px;
+    }
+    
 
 
     &__inner {
@@ -35,6 +39,7 @@
         max-width: 1170px;
         margin: 0 auto;
         padding: 100px 0;
+        
 
         &_main {
             max-width: 100%;
@@ -46,6 +51,7 @@
 
         }
 
+
         &_steps {
             padding-bottom: 0;
         }
@@ -55,11 +61,20 @@
             height: 600px;
             padding-top: 60px;
         }
+        &_advantages{
+            max-width: 845px;
+        }
 
         &_team {
             margin-top: -70px;
             background-color: @wt;
             padding-bottom: 0;
+        }
+        &_404{
+            background-repeat: no-repeat;
+            background-position: 100% center;
+            padding: 100px 0 0 0;
+            margin-top: 100px;
         }
 
 
@@ -68,6 +83,10 @@
         &_wrapper {
             padding: 0 0 72px 0;
             display: flex;
+        }
+
+        &_single{
+            padding: 0 0 100px 0;
         }
 
 
@@ -98,7 +117,7 @@
         &_text {
             max-width: 960px;
             margin: 0 auto;
-            padding: 0;
+            padding: 0 0 28px 0;
         }
 
         &_steps {
@@ -114,6 +133,7 @@
             flex-flow: wrap;
             justify-content: space-between;
             padding: 20px 0 90px;
+            
         }
 
         &_content {
@@ -249,6 +269,7 @@
             display: flex;
             flex-flow: wrap;
             justify-content: space-between;
+            padding: 0;
         }
         &_worker{
             display: flex;
@@ -273,7 +294,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 30px 0;
     }
 
+    &__buttons{
+        margin-top: 140px;
+        a:not(:last-child){
+            margin-right: 10px;
+        }
+    }
+
+    &__pointer{
+        .rem(20);
+        color: @bk;
+        font-weight: normal;
+        margin-bottom: 15px;
+    }
 
 }

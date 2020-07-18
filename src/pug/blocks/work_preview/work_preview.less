@@ -15,10 +15,20 @@
         font-weight: 500;
         margin-bottom: 10px;
         color: @bk;
+       
     }
     &__text{
         .rem(14);
         line-height: 22px;
-        color: @grey;
+        color: @text;
+       
+    }
+    &:hover,&:active,&:focus{
+        .work-preview__title{
+            color: @red;
+        }
+        .work-preview__text{
+            color: @bk;
+        }
     }
 }

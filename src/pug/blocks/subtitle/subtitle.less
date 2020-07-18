@@ -7,10 +7,31 @@
         color: @bk;
     }
 
-    &_white{
-        h2{
+    &_white {
+        h2 {
             color: @wt;
         }
+    }
+
+    &_404 {
+        h2 {
+            .rem(24);
+            font-weight: normal;
+            text-align: left;
+            background-repeat: no-repeat;
+            background-position: 100% center;
+            display: inline-block;
+            padding: 0 40px 0 0;
+
+        }
+    }
+
+    &_page {
+        h2 {
+            text-align: left;
+            .rem(36);
+        }
+
     }
 }
 

@@ -1,4 +1,4 @@
-mixin worktime(cl,list)
+mixin worktime(cl,list,org)
     if list
         .worktime(class= cl)
             .worktime__item
@@ -22,6 +22,10 @@ mixin worktime(cl,list)
             .worktime__item
                 span Воскресенье
                 |10:00 - 16:00
+    else if org
+        .worktime(class= cl)
+            .worktime__item ИНН: 00000000000
+            .worktime__item ОГРН: 000000000000
     else
         .worktime(class= cl)
             .worktime__item

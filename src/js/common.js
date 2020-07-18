@@ -248,9 +248,7 @@ $('.slider_main').slick({
   cssEase: 'linear',
   arrows: false,
   dots: true,
-  // nextArrow: '<div class="slider__arrow slider__arrow_next">',
-  // prevArrow: '<div class="slider__arrow slider__arrow_prev">',
-  // appendDots: $('.section_main .section__dots'),
+  
 })
 
 

@@ -1,0 +1,23 @@
+mixin section_12()
+    section.section.section_404
+        .section__inner.section__inner_404.lazy(data-src="/assets/img/404.png")
+            +title('Упс! Произошло короткое замыкание','title_404')
+            +subtitle('Такая страница не найдена','subtitle_404','/assets/img/lightning.svg')
+
+            .section__box.section__box_404
+                
+                .section__buttons
+                    .section__pointer Куда дальше?
+                    +button('Статьи','button_blue','','/')
+                    +button('Рассчитать стоимость','button_blue','','/')
+                    +button('На главную','button_blue','','/')
+        .section__inner
+            .section__box.section__box_services
+                    +preview('/assets/img/service_1.jpg','Услуги электроизмерительной лаборатории')
+                    +preview('/assets/img/service_2.jpg','Электромонтажные работы')
+                    +preview('/assets/img/service_3.jpg','Сервисное обслуживание электрооборудования')
+                    +preview('/assets/img/service_4.jpg','Энергетическое обследование')
+                    +preview('/assets/img/service_5.jpg','Разработка программы повышения энергетической эффективности')
+                    +preview('/assets/img/service_6.jpg','Тепловизионное обследование')
+        .section__inner.section__inner_single
+            +feedback()

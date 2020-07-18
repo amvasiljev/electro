@@ -1,5 +1,11 @@
-mixin map()
-    .ymap-container.lazy(data-src="/assets/img/yamap.jpg")
-        .loader.loader-default
-        #map-yandex
-        +contact_box()
+mixin map(contacts)
+    if contacts
+        .map__title Мы на карте
+        .ymap-container.ymap-container_contacts.lazy(data-src="/assets/img/yamap_1.jpg")
+            .loader.loader-default
+            #map-yandex
+    else
+        .ymap-container.lazy(data-src="/assets/img/yamap.jpg")
+            .loader.loader-default
+            #map-yandex
+            +contact_box()
