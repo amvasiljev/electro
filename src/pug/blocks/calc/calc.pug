@@ -1,2 +1,14 @@
 mixin calc()
-    +table_calc()
+    .calc
+        .calc__box
+            +table_calc()
+            .calc__footnote * Считается автоматически по формуле, как % от общей суммы
+        .calc__box
+            +subtitle('Вместе с основным перечнем работ вы также можете заказать:','subtitle_page')
+            +table_calc_1()
+            
+        .calc__box.calc__box_total
+            +button('Сбросить','button_blue button_reset_calc')
+            .calc__total Итого: 
+                span 0 руб.
+        

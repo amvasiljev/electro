@@ -9,8 +9,9 @@ $(function () {
 inputActive('.search', 'search__input_active');
 inputActive('.order', 'order__input_active');
 inputActive('.feedback', 'feedback__input_active');
-inputActive('.popup','popup__input_active')
-inputActive('.calc-input','calc-input__value_active')
+inputActive('.popup', 'popup__input_active')
+inputActive('.calc-input', 'calc-input__value_active')
+inputActive('.offer__inputs', 'offer__input_active')
 
 function inputActive(elem, cl) {
   $(elem).on('focus', 'input[type="text"]', function () {
@@ -251,7 +252,7 @@ $('.slider_main').slick({
   cssEase: 'linear',
   arrows: false,
   dots: true,
-  
+
 })
 
 
@@ -353,12 +354,29 @@ $('.tabs').on('click', 'a', function (e) {
   var tabSlider = $(id)
   $('.section__tab').not(tabSlider).fadeOut().removeClass('section__tab_active')
   tabSlider.fadeIn().addClass('section__tab_active')
+  
 
 })
 
 // tabs
 
+// tabs offer
 
+
+$('.offer__type').on('click',function(){
+  $('.offer__type').not($(this)).removeClass('offer__type_active')
+  $(this).addClass('offer__type_active')
+  var type = $(this).attr('data-attr')
+  
+  $('.offer__inner').removeClass('offer__inner_active')
+  $(type).addClass('offer__inner_active')
+})
+
+
+
+
+
+// tabs offer
 
 // worker
 
@@ -445,10 +463,6 @@ if (windowWidth <= 550) {
 
 
 
-
-
-
-
 // table_mobile
 
 
@@ -460,6 +474,174 @@ $('.questions__item').on('click', function () {
 })
 
 // questions
+
+
+
+// calculator
+
+var input_1 = $('[name = percent_1]')
+var input_2 = $('[name = percent_2]')
+
+var percent_1 = input_1.parent().parent().siblings('.calc__row')
+var percent_2 = input_2.parent().parent().siblings('.calc__row')
+
+input_1.on('change', function () {
+  $(this).toggleClass('calc__input_off')
+  allFunction()
+})
+input_2.on('change', function () {
+  $(this).toggleClass('calc__input_off')
+  allFunction()
+})
+
+
+inputCalc()
+
+$('.button_reset_calc').on('click', function () {
+  resetCalc()
+})
+
+
+
+
+function inputCalc() {
+  $('.calc-input').on('click', '.calc-input__btn', function () {
+    var $this = $(this);
+    var inputCalc = $this.parent('.calc-input').find('.calc-input__value');
+    var val = parseInt(inputCalc.val());
+
+
+    if ($this.hasClass('calc-input__btn_plus')) {
+      val++;
+      inputCalc.val(val);
+      allFunction();
+
+    } else {
+      val--;
+      if (val <= 0) {
+        val = 0;
+      }
+      inputCalc.val(val);
+      allFunction();
+
+    }
+
+  })
+
+  $('.calc-input').on('keypress keyup blur', '.calc-input__value', function (event) {
+    keyCode = (event.which) ? event.which : event.keyCode;
+
+    var $this = $(this);
+    var inputCalc = $this.parent('.calc-input').find('.calc-input__value');
+    var val = parseInt(inputCalc.val());
+
+    if (val >= 0) {
+      inputCalc.val(val);
+      allFunction();
+    }
+    return !(keyCode > 31 && (keyCode < 48 || keyCode > 57));
+  });
+
+  //allFunction(); - это функция для инпутов-калькуляторов
+
+
+}
+
+
+
+
+function calcRow() {
+  $('.table_calc tr').each(function (indx) {
+    var price = parseFloat($(this).find('.calc__price').text());
+    var quantity = $(this).find('.calc-input__value').val()
+    var total = price * quantity
+    $(this).find('.calc__row').text(total.toFixed(2))
+  })
+
+}
+
+function resetCalc() {
+  $('.table_calc tr').each(function (indx) {
+    $(this).find('.calc-input__value').val('0')
+    allFunction()
+  })
+}
+
+
+function calcActive() {
+  $('.calc-input__value').each(function () {
+    if ($(this).val() > 0) {
+      $(this).addClass('calc-input__value_active')
+    } else {
+      $(this).removeClass('calc-input__value_active')
+    }
+  })
+}
+
+
+
+function calcPercent() {
+
+
+    var total = 0;
+
+    $('.table_calc_first tr:not(.calc__input)').each(function (indx) {
+
+      var price = parseInt($(this).find('.calc__row').text());
+
+      if (price > 0) {
+        total += price
+      }
+
+      if (input_1.hasClass('calc__input_off')){
+        percent_1.text('0')
+      }else{
+        percent_1.text((total * 0.06).toFixed(2))
+      }
+      if (input_2.hasClass('calc__input_off')){
+        percent_2.text('0')
+      }else{
+        percent_2.text((total * 0.04).toFixed(2))
+      }
+      
+    })
+  
+}
+
+function calcTotal() {
+  var total = 0;
+  $('.table_calc tr').each(function (indx) {
+    var price = parseFloat($(this).find('.calc__row').text());
+    
+    if (price > 0) {
+      total += price
+    }
+    
+  })
+  var format = new Intl.NumberFormat('ru-RU').format(total)
+  $('.calc__total span').text(format + ' руб.')
+}
+
+
+
+
+function allFunction() {
+  calcRow()
+  calcActive()
+  calcPercent()
+  
+    calcTotal()
+ 
+  
+}
+
+
+
+
+
+// calculator
+
+
 
 
 // map 

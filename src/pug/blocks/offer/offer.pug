@@ -1,0 +1,48 @@
+mixin offer()
+    .offer
+        .offer__title Коммерческое предложение
+        .offer__subtitle Укажите количество кабельных линий или автоматических выключателей (шт.) или укажите примерную площадь объекта (кв. м)
+        .offer__tabs
+            .offer__type.offer__type_active(data-attr="#quantity") Количество
+            .offer__type(data-attr="#area") Площадь
+        .offer__inner.offer__inner_active#quantity
+            .offer__inputs
+                .offer__heading Количество автоматов
+                input(type="text" placeholder="Кол-во шт.").offer__input
+            
+            .offer__text Отметьте вид испытаний,<br>при этом необходимые виды измерений в таблице ниже будут выбраны автоматически.
+
+            .offer__box
+                .offer__item
+                    input.offer__checkbox(id="checkbox_4")(type="checkbox" checked)
+                    label.offer__label(for="checkbox_4") Эксплуатационные электроиспытания
+                    .offer__description Необходимо провести электроизмерения для соблюдения правил технической эксплуатации электроустановки (не реже 1 раза в 3 года)	
+                .offer__item
+                    input.offer__checkbox(id="checkbox_5")(type="checkbox" checked)
+                    label.offer__label(for="checkbox_5") Приемо-сдаточные электроиспытания
+                    .offer__description Необходимо провести электроизмерения после окончания электромонтажных работ							
+                .offer__item
+                    input.offer__checkbox(id="checkbox_6")(type="checkbox" checked)
+                    label.offer__label(for="checkbox_6") Электроизмерени проводить в выходные дни или нерабочее время
+                .offer__item
+                    input.offer__checkbox(id="checkbox_7")(type="checkbox" checked)
+                    label.offer__label(for="checkbox_7") Объект находится за МКАД
+
+            .offer__caption Если вы не отметили вид испытаний (приемо-сдаточные или эксплуатационные), то виды измерений и количество проверяемых элементов нужно внести в таблицу вручную.
+        
+
+        .offer__inner#area
+            .offer__inputs
+                .offer__heading Площадь объекта
+                input(type="text" placeholder="Кол-во кв.м.").offer__input
+            
+            .offer__text Расчет является ориентировочным, скидки и бонусы обсуждаются по телефону
+            +phone('phone_offer')
+
+            .offer__box
+                .offer__item
+                    input.offer__checkbox(id="checkbox_8")(type="checkbox" checked)
+                    label.offer__label(for="checkbox_8") Электроизмерения производить в выходные дни или нерабочее время
+                .offer__item
+                    input.offer__checkbox(id="checkbox_9")(type="checkbox" checked)
+                    label.offer__label(for="checkbox_9") Объект находится за МКАД

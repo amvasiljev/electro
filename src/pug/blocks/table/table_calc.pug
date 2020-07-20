@@ -1,35 +1,83 @@
 mixin table_calc()
    
 
-    .table.table_calc
+    .table.table_calc.table_calc_first
         table
          
             tbody
                 
                 tr
-                    th(scope="col") Вид измерений
-                    th(scope="col") Кол-во
-                    th(scope="col") Ед.изм.
-                    th(scope="col") Цена за ед.
-                    th(scope="col") Стоимость
+                    th Вид измерений
+                    th Кол-во
+                    th Ед.изм.
+                    th Цена за ед.
+                    th Стоимость
+                tr.calc__input
+                    td Визуальный осмотр*
+                    td
+                        .calc__consent
+                            input.calc__checkbox(id="percent_1")(type="checkbox" name="percent_1" checked)
+                            label.calc__label(for="percent_1")
+                        //- input(type="checkbox", name="percent_1" checked)
+                    td Отчет
+                    td.calc__price -
+                    td.calc__row 0.00
                 tr
                     td Проверка наличия цепи между заземлителями и заземленными элементами (металлосвязь)
                     td
-                        +calc_input()
+                        +calc_input('0')
                     td Точка
-                    td 10
-                    td 10
+                    td.calc__price 10
+                    td.calc__row 0.00
                 tr
                     td Измерение сопротивления изоляции кабельных линий до 1000 В
                     td 
-                        +calc_input()
+                        +calc_input('0')
                     td Линия
-                    td 75
-                    td 0.00
+                    td.calc__price 75
+                    td.calc__row 0.00
                 tr
                     td Проверка согласования параметров цепи «фаза-нуль» с характеристиками аппаратов защиты
                     td
-                        +calc_input()
+                        +calc_input('0')
                     td Токоприемник
-                    td 75
-                    td 0.00
+                    td.calc__price 75
+                    td.calc__row 0.00
+                tr
+                    td Проверка автоматических выключателей напряжением до 1000 В
+                    td
+                        +calc_input('0')
+                    td Шт.
+                    td.calc__price 95
+                    td.calc__row 0.00
+                tr
+                    td Проверка действия устройств защитного отключения управляемых дифференциальным током
+                    td
+                        +calc_input('0')
+                    td Шт.
+                    td.calc__price 80
+                    td.calc__row 0.00
+                tr
+                    td Проверка системы повторного заземления (контур заземления)
+                    td
+                        +calc_input('0')
+                    td Шт.
+                    td.calc__price 1500
+                    td.calc__row 0.00
+                tr
+                    td Проверка устройства АВР со схемой восстановления напряжения
+                    td
+                        +calc_input('0')
+                    td Шт.
+                    td.calc__price 15000
+                    td.calc__row 0.00
+                tr.calc__input
+                    td Составление технического отчета*
+                    td
+                        .calc__consent
+                            input.calc__checkbox(id="percent_2")(type="checkbox" name="percent_2" checked)
+                            label.calc__label(for="percent_2")
+                        //- input(type="checkbox", name="percent_2" checked)
+                    td Отчет
+                    td.calc__price -
+                    td.calc__row 0.00

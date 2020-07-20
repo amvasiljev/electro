@@ -72,6 +72,7 @@
         display: inline-flex;
         height: 44px;
         transition: all 0.3s;
+        cursor: pointer;
         &:hover,&:focus{
             background: @bl;
             color: @wt;
@@ -83,6 +84,7 @@
             color: @wt;
             transition: all 0.3s;
         }
+
     }
 
 
@@ -94,7 +96,22 @@
         margin: 0 auto;
     }
     
-    
+    &_reset{
+        &_calc{
+            &:before{
+                content:'+';
+                .rem(21);
+                font-weight: 400;
+                color: @red;
+                transform: rotate(45deg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 20px;
+                width: 20px;
+            }
+        }
+    }
 
 
 }

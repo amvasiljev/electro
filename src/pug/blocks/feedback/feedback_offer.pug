@@ -1,0 +1,17 @@
+mixin feedback_offer()
+    .feedback.feedback_offer.lazy(data-src="/assets/img/bg_form_offer.png")
+        .feedback__heading
+            .feedback__title Для моментальной отправки коммерческого предложения укажите данные
+            
+        form(action="/").feedback__form
+            input(type="text" placeholder="Наименование огранизации").feedback__input.feedback__input_full
+            input(type="text" placeholder="Ваше имя").feedback__input
+            input(type="text" placeholder="E-mail").feedback__input
+            input(type="text").feedback__input.feedback__input_phone
+            input(type="text" placeholder="Адрес проведения работ").feedback__input
+            textarea(name="text", cols="30", rows="10" placeholder="Ваше сообщение").feedback__textarea
+            .feedback__policy 
+                span Отправляя форму, Вы принимаете
+                a(href="/").feedback__link Соглашение о конфиденциальности
+            +button('Отправить сообщение','button_red button_center','submit')
+            
