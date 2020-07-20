@@ -26,6 +26,10 @@
             
         }
 
+        @media @1024,@768{
+            padding: 20px;
+        }
+
     }
     &__box{
         width: calc(33% - 25px);
@@ -34,6 +38,11 @@
         align-items: center;
         justify-content: flex-start;
         
+        &:last-child{
+            @media @1024,@768{
+                justify-content: flex-end;
+            }
+        }
         &_fixed{
             width: auto;
         }

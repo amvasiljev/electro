@@ -49,9 +49,12 @@ $('.popup__input_phone').mask('+7 (000) 000-00-00', {
   placeholder: "+7 (000) 000-00-00"
 });
 
-// inputs
+// end inputs
 
 
+
+
+// main-menu
 
 $('.nav__item_group').hover(
   function () {
@@ -69,6 +72,10 @@ $('.nav_level_2 .nav__item_group').hover(
     $(this).find('.nav_level_3').dequeue().stop(true, true).fadeOut(300)
   }
 )
+
+// end main-menu
+
+
 
 
 // nav_side
@@ -93,156 +100,203 @@ $('.nav-side__link_group').on('click', function (e) {
 })
 
 
-// nav_side
-
-
-var burgerFixed = $('.burger');
-var fixedMenu = $('.nav').clone().html();
-var closeMenuFixed = $('<div>').addClass('nav__close_fixed');
+// end nav_side
 
 
 
-burgerFixed.on('click', function () {
 
-  if ($('.nav_fixed').length > 0) {
+headerScroll($('.burger'))
 
-    $(this).removeClass('burger_close')
+// choice fixed or mobile menu 
 
-    $('.nav_fixed').fadeOut(400);
-    setTimeout(function () {
-      $('.nav_fixed').remove()
-    }, 400)
-    console.log('close');
-  } else {
+var windowWidth = $(window).width()
 
-    $(this).addClass('burger_close')
+if (windowWidth > 1200) {
 
-    $('<div>').addClass('nav_fixed').appendTo('.header_fixed').append(fixedMenu);
-    $('<div>').addClass('nav__other').appendTo($('.nav_fixed'))
-    $('<div>').addClass('nav__other_1').appendTo($('.nav__other'));
-    $('<div>').addClass('nav__other_2').appendTo($('.nav__other'));
-    $('.nav__other').before($('<div>').addClass('nav__title').text('Навигация'))
-
-    $('.nav_fixed').fadeIn(400).css('display', 'flex')
+  // fixed menu
 
 
-    $('.nav_fixed > .nav__item').each(function (indx) {
-      if (indx != 1) {
-        $(this).appendTo($('.nav__other'))
-      }
-    })
-
-    $('.nav__other > .nav__item').each(function (indx) {
-      if ($(this).hasClass('nav__item_group')) {
-        $(this).addClass('nav__item_simple').appendTo($('.nav__other_2'))
-      } else {
-        $(this).addClass('nav__item_simple').appendTo($('.nav__other_1'))
-      }
-    })
+  var burgerFixed = $('.burger');
+  var fixedMenu = $('.nav').clone().html();
+  var closeMenuFixed = $('<div>').addClass('nav__close_fixed');
 
 
-  }
-  $('body').addClass('stop_scrolling ')
 
-})
+  burgerFixed.on('click', function () {
 
+    if ($('.nav_fixed').length > 0) {
 
-var windowHeight = $(document).height();
-if (windowHeight > 1080) {
-  $(document).scroll(function () {
-    var scrollTop = $(this).scrollTop();
-    if (scrollTop > 100) {
-      $('.header').addClass('header_fixed');
-      $('.header__inner').addClass('header__inner_fixed');
-      $('.logo_header').addClass('logo_fixed');
-      $('.nav__wrapper').hide()
-      $('.search').hide()
-      $('.logo').addClass('logo_fixed')
-      burgerFixed.addClass('burger_fixed')
-      $('.header__box').addClass('header__box_fixed')
+      $(this).removeClass('burger_close')
 
-      $('section').eq(0).css('paddingTop', '211')
-      $('.section__inner_main').css('top', '341')
-
-
+      $('.nav_fixed').fadeOut(400);
+      setTimeout(function () {
+        $('.nav_fixed').remove()
+      }, 400)
+      console.log('close');
     } else {
-      $('.header').removeClass('header_fixed');
-      $('.header__inner').removeClass('header__inner_fixed');
-      $('.logo_header').removeClass('logo_fixed');
-      $('.nav__wrapper').show()
-      $('.search').show()
-      $('.logo').removeClass('logo_fixed')
-      burgerFixed.removeClass('burger_fixed burger_close')
-      $('.header__box').removeClass('header__box_fixed')
-      $('.nav_fixed').remove()
 
-      $('section').eq(0).css('paddingTop', '0')
-      $('.section__inner_main').css('top', '130')
+      $(this).addClass('burger_close')
+
+      $('<div>').addClass('nav_fixed').appendTo('.header_fixed').append(fixedMenu);
+      $('<div>').addClass('nav__other').appendTo($('.nav_fixed'))
+      $('<div>').addClass('nav__other_1').appendTo($('.nav__other'));
+      $('<div>').addClass('nav__other_2').appendTo($('.nav__other'));
+      $('.nav__other').before($('<div>').addClass('nav__title').text('Навигация'))
+
+      $('.nav_fixed').fadeIn(400).css('display', 'flex')
+
+
+      $('.nav_fixed > .nav__item').each(function (indx) {
+        if (indx != 1) {
+          $(this).appendTo($('.nav__other'))
+        }
+      })
+
+      $('.nav__other > .nav__item').each(function (indx) {
+        if ($(this).hasClass('nav__item_group')) {
+          $(this).addClass('nav__item_simple').appendTo($('.nav__other_2'))
+        } else {
+          $(this).addClass('nav__item_simple').appendTo($('.nav__other_1'))
+        }
+      })
+
+
     }
 
+
   })
+
+
+
+  // end fixed menu
+
+
+} else {
+
+
+  //mobile menu
+
+  var mobileNav = $('<div>').addClass('nav_mobile');
+  var mobileItems = $('.nav').html();
+  var mobileWrapper = $('<div>').addClass('nav_outer').prependTo('body');
+  var burger = $('.burger');
+  var closeButton = $('<div>').addClass('nav_close');
+  var mobileFake = $('<div>').addClass('nav__fake').prependTo('body');
+
+
+  var search = $('.search').clone().addClass('search_mobile').appendTo(mobileWrapper)
+
+
+  mobileWrapper.append(mobileNav);
+  mobileNav.append(closeButton);
+  mobileNav.append(mobileItems);
+  mobileNav.find('.nav__item').addClass('nav__item_mobile');
+  mobileNav.find('.nav__link').addClass('nav__link_mobile');
+
+
+
+
+  burger.on('click', function () {
+    mobileWrapper.animate({
+      right: 0
+    }, 300).addClass('nav_active');
+    $('body').addClass('stop_scrolling');
+    $(this).attr('data-key', '');
+    mobileFake.show();
+  })
+
+  closeButton.on('click', function () {
+    mobileWrapper.animate({
+      right: '-287px'
+    }, 500).removeClass('nav_active');
+    $('body').removeClass('stop_scrolling');
+    $(this).attr('data-key', 'key');
+    mobileFake.hide();
+  })
+
+
+  mobileFake.on('click', function () {
+    closeButton.trigger('click')
+  })
+
+
+  $('.nav_mobile .nav__link_group').on('click', function (e) {
+    e.preventDefault()
+    var $this = $(this).next('ul');
+    $(this).parent().parent().find('ul').not($this).slideUp()
+    $this.slideToggle()
+
+    $(this).toggleClass('nav__link_open')
+    $('.nav__link_group').not($(this)).removeClass('nav__link_open')
+  })
+
+
+
+  // end mobile menu
+}
+
+// end choice fixed or mobile menu 
+
+
+
+
+
+
+
+
+// function header-scroll
+
+
+function headerScroll(burgerFixed) {
+  var windowHeight = $(document).height();
+  if (windowHeight > 1080) {
+    $(document).scroll(function () {
+      var scrollTop = $(this).scrollTop();
+      if (scrollTop > 100) {
+        $('.header').addClass('header_fixed');
+        $('.header__inner').addClass('header__inner_fixed');
+        $('.logo_header').addClass('logo_fixed');
+        $('.nav__wrapper').hide()
+        $('.search').hide()
+        $('.logo').addClass('logo_fixed')
+        burgerFixed.addClass('burger_fixed')
+        $('.header__box').addClass('header__box_fixed')
+
+        $('section').eq(0).css('paddingTop', '211')
+        $('.section__inner_main').css('top', '341')
+
+
+      } else {
+        $('.header').removeClass('header_fixed');
+        $('.header__inner').removeClass('header__inner_fixed');
+        $('.logo_header').removeClass('logo_fixed');
+
+        if (windowWidth > 1200) {
+          $('.nav__wrapper').show()
+          $('.search').show()
+        }
+
+        $('.logo').removeClass('logo_fixed')
+        burgerFixed.removeClass('burger_fixed burger_close')
+        $('.header__box').removeClass('header__box_fixed')
+        $('.nav_fixed').remove()
+
+        $('section').eq(0).css('paddingTop', '0')
+        $('.section__inner_main').css('top', '130')
+      }
+
+    })
+  }
 }
 
 
-// fixed menu
+// end function header-scroll
 
 
 
-// closeMenu.on('click', function () {
-//   $('.nav_mobile').fadeOut(300);
-//   $('body').removeClass('stop_scrolling ')
-// })
 
 
-$(document).on('click', '.nav__item', function () {
-  closeMenu.trigger('click');
-})
-
-// end fixed menu
-
-
-//mobile menu
-
-// var burger = $('.burger');
-// var mobileMenu = $('.nav').clone().html();
-// var closeMenu = $('<div>').addClass('nav__close');
-// var auth = $('.auth').clone().addClass('auth_mobile').removeClass('auth').append(closeMenu);
-// var contacts = $('.header__contacts').clone().addClass('header__contacts_mobile').removeClass('header__contacts')
-
-// auth.find('.auth__reg').addClass('auth__reg_mobile')
-// auth.find('.auth__log').addClass('auth__log_mobile')
-
-// contacts.find('.email').addClass('email_mobile')
-// contacts.find('.email__text').addClass('email__text_mobile')
-// contacts.find('.email__link').addClass('email__link_mobile')
-// contacts.find('.phone__text').addClass('phone__text_mobile')
-// contacts.find('.phone__link').addClass('phone__link_mobile')
-
-// burger.on('click', function () {
-//   if ($('.nav_mobile').length) {
-//     $('.nav_mobile').fadeIn(300);
-//   } else {
-//     $('<div>').addClass('nav_mobile').prependTo('body').append(mobileMenu);
-//     $('.nav_mobile').prepend(auth).append(contacts).find('.nav__item').addClass('nav__item_mobile')
-//   }
-//   $('body').addClass('stop_scrolling ')
-// })
-
-// closeMenu.on('click', function () {
-//   $('.nav_mobile').fadeOut(300);
-//   $('body').removeClass('stop_scrolling ')
-// })
-
-
-// $(document).on('click', '.nav__item', function () {
-//   closeMenu.trigger('click');
-// })
-
-
-//mobile menu
-
-
-// slider 
+// sliders
 
 
 $('.slider_main').slick({
@@ -334,6 +388,12 @@ $('.slider__box_docs').slick({
 });
 
 
+// end sliders
+
+
+
+
+
 // tabs
 
 $('.section__tab').each(function () {
@@ -354,20 +414,20 @@ $('.tabs').on('click', 'a', function (e) {
   var tabSlider = $(id)
   $('.section__tab').not(tabSlider).fadeOut().removeClass('section__tab_active')
   tabSlider.fadeIn().addClass('section__tab_active')
-  
+
 
 })
 
-// tabs
+// end  tabs
 
 // tabs offer
 
 
-$('.offer__type').on('click',function(){
+$('.offer__type').on('click', function () {
   $('.offer__type').not($(this)).removeClass('offer__type_active')
   $(this).addClass('offer__type_active')
   var type = $(this).attr('data-attr')
-  
+
   $('.offer__inner').removeClass('offer__inner_active')
   $(type).addClass('offer__inner_active')
 })
@@ -376,9 +436,11 @@ $('.offer__type').on('click',function(){
 
 
 
-// tabs offer
+// end  tabs offer
 
-// worker
+
+
+// worker 
 
 var worker = $('.worker')
 
@@ -405,23 +467,10 @@ worker.each(function (indx) {
 
 
 
-
-
-
-
-
-
-
 // end worker
 
 
-// products
-// if (/Android|webOS|iPhone|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-//   var product = $('.product');
-//   product.each(function (indx) {
-//     if (indx >= 3) $(this).hide()
-//   })
-// }
+
 
 
 // table_mobile
@@ -463,7 +512,9 @@ if (windowWidth <= 550) {
 
 
 
-// table_mobile
+// end table_mobile
+
+
 
 
 // questions
@@ -473,7 +524,10 @@ $('.questions__item').on('click', function () {
   $(this).toggleClass('questions__item_active')
 })
 
-// questions
+
+// end  questions
+
+
 
 
 
@@ -542,7 +596,7 @@ function inputCalc() {
     return !(keyCode > 31 && (keyCode < 48 || keyCode > 57));
   });
 
-  //allFunction(); - это функция для инпутов-калькуляторов
+  
 
 
 }
@@ -583,40 +637,40 @@ function calcActive() {
 function calcPercent() {
 
 
-    var total = 0;
+  var total = 0;
 
-    $('.table_calc_first tr:not(.calc__input)').each(function (indx) {
+  $('.table_calc_first tr:not(.calc__input)').each(function (indx) {
 
-      var price = parseInt($(this).find('.calc__row').text());
+    var price = parseInt($(this).find('.calc__row').text());
 
-      if (price > 0) {
-        total += price
-      }
+    if (price > 0) {
+      total += price
+    }
 
-      if (input_1.hasClass('calc__input_off')){
-        percent_1.text('0')
-      }else{
-        percent_1.text((total * 0.06).toFixed(2))
-      }
-      if (input_2.hasClass('calc__input_off')){
-        percent_2.text('0')
-      }else{
-        percent_2.text((total * 0.04).toFixed(2))
-      }
-      
-    })
-  
+    if (input_1.hasClass('calc__input_off')) {
+      percent_1.text('0')
+    } else {
+      percent_1.text((total * 0.06).toFixed(2))
+    }
+    if (input_2.hasClass('calc__input_off')) {
+      percent_2.text('0')
+    } else {
+      percent_2.text((total * 0.04).toFixed(2))
+    }
+
+  })
+
 }
 
 function calcTotal() {
   var total = 0;
   $('.table_calc tr').each(function (indx) {
     var price = parseFloat($(this).find('.calc__row').text());
-    
+
     if (price > 0) {
       total += price
     }
-    
+
   })
   var format = new Intl.NumberFormat('ru-RU').format(total)
   $('.calc__total span').text(format + ' руб.')
@@ -629,17 +683,14 @@ function allFunction() {
   calcRow()
   calcActive()
   calcPercent()
-  
-    calcTotal()
- 
-  
+
+  calcTotal()
+
+
 }
 
 
-
-
-
-// calculator
+// end calculator
 
 
 
@@ -748,3 +799,5 @@ $(function () {
     ymap();
   });
 })
+
+// end map 
