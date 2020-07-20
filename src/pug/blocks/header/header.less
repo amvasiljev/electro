@@ -20,15 +20,26 @@
         display: flex;
         flex-flow: wrap;
         justify-content: space-between;
-
-        &_fixed{
-            height: 100px;
-            
-        }
-
+        
         @media @1024,@768{
             padding: 20px;
         }
+        @media @320{
+            position: relative;
+            padding: 10px 17px;
+            height: 190px;
+        }
+        &_fixed{
+            height: 100px;
+            @media @768{
+                height: 151px;
+            }
+            @media @320{
+                height: unset;
+            }
+        }
+
+       
 
     }
     &__box{
@@ -37,6 +48,13 @@
         flex-flow: wrap;
         align-items: center;
         justify-content: flex-start;
+
+        @media @320{
+            width: 100%;
+            min-height: 50px;
+            height: unset;
+            justify-content: space-between;
+        }
         
         &:last-child{
             @media @1024,@768{
@@ -45,6 +63,17 @@
         }
         &_fixed{
             width: auto;
+            @media @768{
+                width: calc(33% - 25px);
+            }
+            @media @320{
+                height: 45px;
+            }
+            &:not(:nth-child(2)){
+                @media @320{
+                    display: none;
+                }
+            }
         }
     }
     &__call{
@@ -52,6 +81,9 @@
         flex-direction: column;
         align-items: flex-end;
         margin-right: 22px;
+        @media @320{
+            align-items: flex-start;
+        }
     }
     &__callback{
         margin-top: 3px;

@@ -34,6 +34,11 @@
         padding: 0;
         .rem(12);
         margin-right: 10px;
+
+        @media @320{
+            width: calc(50% - 5px);
+            margin-right: 0;
+        }
         &:hover,&:focus{
             background: @button_3_hover;
             box-shadow: unset;
@@ -49,6 +54,10 @@
         background-color: transparent;
         border: 2px solid @red;
         .rem(12);
+
+        @media @320{
+            width: calc(50% - 5px);
+        }
         &:hover,&:focus{
             background: @button_2_hover;
             box-shadow: unset;

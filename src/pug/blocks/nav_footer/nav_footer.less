@@ -4,6 +4,11 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+
+    @media @320{
+        min-height: 240px;
+        height: unset;
+    }
     &__title{
         color: @copyright;
         .rem(14);

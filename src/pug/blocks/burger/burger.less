@@ -10,20 +10,34 @@
     cursor: pointer;
     display: none;
 
-    &_fixed{
-        display: block;
-    }
-    &_close{
-        background-image: url(/assets/img/close.svg);
-    }
-
-    @media @1024,@768,
+    @media @1024,
+    @768,
     @320 {
         display: block;
         order: 1;
         height: 45px;
         width: 45px;
     }
+
+    @media @320 {
+        position: absolute;
+        top: 17px;
+        right: 17px;
+    }
+
+    &_fixed {
+        display: block;
+
+        @media @320 {
+            top: 13px;
+        }
+    }
+
+    &_close {
+        background-image: url(/assets/img/close.svg);
+    }
+
+
 
 
 }

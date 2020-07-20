@@ -10,6 +10,13 @@
         display: flex;
         flex-flow: wrap;
         justify-content: space-between;
+
+        @media @1024,@768{
+            padding: 20px;
+        }
+        @media @320{
+            padding: 40px 17px 35px;
+        }
     }
 
     &__box{
@@ -23,7 +30,66 @@
         &:last-child{
             align-items: flex-end;
             max-width: 25%;
-            ;
+            
+        }
+
+        @media @1024,@768{
+            max-width: 50%;
+            width: 50%;
+            margin: 0;
+            height: 215px;
+            margin-bottom: 30px;
+
+            &:not(:first-child){
+                margin-left: 0;
+            }
+            &:last-child{
+                align-items: flex-end;
+                max-width: 50%;
+            }
+
+            &:nth-child(1){
+                order:1;
+            }
+            &:nth-child(2){
+                order:3;
+            }
+            &:nth-child(3){
+                order:4;
+            }
+            &:nth-child(4){
+                order:2;
+            }
+
+        }
+        @media @320{
+
+            max-width: 100%;
+            width: 100%;
+            margin: 0;
+            
+            margin-bottom: 30px;
+
+            &:not(:first-child){
+                margin-left: 0;
+            }
+            &:last-child{
+                align-items: flex-end;
+                max-width: 50%;
+            }
+
+            &:nth-child(1){
+                order:1;
+            }
+            &:nth-child(2){
+                order:3;
+            }
+            &:nth-child(3){
+                order:4;
+            }
+            &:nth-child(4){
+                order:2;
+            }
         }
     }
 
@@ -34,6 +100,10 @@
         align-items: flex-start;
         height: 72px;
         justify-content: space-between;
+
+        @media @320{
+            margin: 20px 0 0 0;
+        }
 
     }
     &__link{
@@ -51,11 +121,18 @@
         &:focus,&:hover,&:active{
             color: @copyright;
         }
+
+        @media @1024,@768,@320{
+            order: 5;
+        }
     }
 
 
     &__buttons{
         display: flex;
+        @media @320{
+            justify-content: space-between;
+        }
     }
 
     &__contacts{
@@ -65,5 +142,10 @@
         justify-content: space-between;
         align-items: flex-start;
         padding: 20px 0 0 0;
+        @media @320{
+            padding: 28px 0 0 0;
+            min-height: 155px;
+            height: unset;
+        }
     }
 }

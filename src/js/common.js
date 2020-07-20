@@ -7,26 +7,14 @@ $(function () {
 // inputs
 
 inputActive('.search', 'search__input_active');
+
 inputActive('.order', 'order__input_active');
 inputActive('.feedback', 'feedback__input_active');
 inputActive('.popup', 'popup__input_active')
 inputActive('.calc-input', 'calc-input__value_active')
 inputActive('.offer__inputs', 'offer__input_active')
 
-function inputActive(elem, cl) {
-  $(elem).on('focus', 'input[type="text"]', function () {
-    $(this).addClass(cl);
-    if ($(this).siblings('.search__button').length > 0) {
-      $(this).siblings('.search__button').addClass('search__button_active')
-    }
-  })
-  $(elem).on('blur', 'input[type="text"]', function () {
-    $(this).removeClass(cl);
-    if ($(this).siblings('.search__button').length > 0) {
-      $(this).siblings('.search__button').removeClass('search__button_active')
-    }
-  })
-}
+
 
 
 $('.feedback__textarea').on('focus', function () {
@@ -185,7 +173,7 @@ if (windowWidth > 1200) {
 
 
   var search = $('.search').clone().addClass('search_mobile').appendTo(mobileWrapper)
-
+  inputActive('.search_mobile', 'search__input_active');
 
   mobileWrapper.append(mobileNav);
   mobileNav.append(closeButton);
@@ -257,7 +245,7 @@ function headerScroll(burgerFixed) {
         $('.header__inner').addClass('header__inner_fixed');
         $('.logo_header').addClass('logo_fixed');
         $('.nav__wrapper').hide()
-        $('.search').hide()
+        $('.search:not(.search_mobile').hide()
         $('.logo').addClass('logo_fixed')
         burgerFixed.addClass('burger_fixed')
         $('.header__box').addClass('header__box_fixed')
@@ -695,6 +683,17 @@ function allFunction() {
 
 
 
+// move copyright
+if(windowWidth < 1201){
+  $('.footer__copyright').appendTo($('.footer__inner'))
+}
+
+
+// end move copyrigh
+
+
+
+
 // map 
 
 
@@ -801,3 +800,24 @@ $(function () {
 })
 
 // end map 
+
+
+
+// function input active
+
+function inputActive(elem, cl) {
+  $(elem).on('focus', 'input[type="text"]', function () {
+    $(this).addClass(cl);
+    if ($(this).siblings('.search__button').length > 0) {
+      $(this).siblings('.search__button').addClass('search__button_active')
+    }
+  })
+  $(elem).on('blur', 'input[type="text"]', function () {
+    $(this).removeClass(cl);
+    if ($(this).siblings('.search__button').length > 0) {
+      $(this).siblings('.search__button').removeClass('search__button_active')
+    }
+  })
+}
+
+// end function input active
