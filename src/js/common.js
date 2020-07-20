@@ -250,9 +250,18 @@ function headerScroll(burgerFixed) {
         burgerFixed.addClass('burger_fixed')
         $('.header__box').addClass('header__box_fixed')
 
-        $('section').eq(0).css('paddingTop', '211')
-        $('.section__inner_main').css('top', '341')
+        
 
+        if(windowWidth < 769){
+          $('section').eq(0).css('paddingTop', '151')
+          $('.section__inner_main').css('top', '281')
+        }else if(windowWidth < 550){
+          $('section').eq(0).css('paddingTop', '190')
+          $('.section__inner_main').css('bottom', '0')
+        }else{
+          $('section').eq(0).css('paddingTop', '211')
+          $('.section__inner_main').css('top', '341')
+        }
 
       } else {
         $('.header').removeClass('header_fixed');
@@ -281,7 +290,31 @@ function headerScroll(burgerFixed) {
 // end function header-scroll
 
 
+// tabs
 
+$('.section__tab').each(function () {
+  if (($(this).hasClass('section__tab_active')) == false) {
+    $(this).removeClass('section__tab_active')
+  }
+})
+
+
+$('.tabs').on('click', 'a', function (e) {
+  e.preventDefault()
+
+  $('.tabs__item').removeClass('tabs__item_active')
+  $(this).addClass('tabs__item_active')
+
+  var id = $(this).attr('href')
+
+  var tabSlider = $(id)
+  $('.section__tab').not(tabSlider).fadeOut().removeClass('section__tab_active')
+  tabSlider.fadeIn().addClass('section__tab_active')
+
+
+})
+
+// end  tabs
 
 
 // sliders
@@ -307,6 +340,27 @@ $('.slider__box_sert').slick({
   nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next.png" alt="">',
   prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
   appendArrows: $('.slider__arrows_sert'),
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
+        prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
+      }
+    }]
 });
 
 
@@ -319,6 +373,27 @@ $('.slider__box_lic').slick({
   nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next.png" alt="">',
   prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
   appendArrows: $('.slider__arrows_lic'),
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
+        prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
+      }
+    }]
 });
 
 
@@ -329,8 +404,29 @@ $('.slider__box_rev').slick({
   slidesToScroll: 1,
   // adaptiveHeight: true,
   nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next.png" alt="">',
-  prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
+  prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.png" alt="">',
   appendArrows: $('.slider__arrows_rev'),
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
+        prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
+      }
+    }]
 });
 
 $('.slider__box_team').slick({
@@ -382,31 +478,7 @@ $('.slider__box_docs').slick({
 
 
 
-// tabs
 
-$('.section__tab').each(function () {
-  if (($(this).hasClass('section__tab_active')) == false) {
-    $(this).fadeOut()
-  }
-})
-
-
-$('.tabs').on('click', 'a', function (e) {
-  e.preventDefault()
-
-  $('.tabs__item').removeClass('tabs__item_active')
-  $(this).addClass('tabs__item_active')
-
-  var id = $(this).attr('href')
-
-  var tabSlider = $(id)
-  $('.section__tab').not(tabSlider).fadeOut().removeClass('section__tab_active')
-  tabSlider.fadeIn().addClass('section__tab_active')
-
-
-})
-
-// end  tabs
 
 // tabs offer
 

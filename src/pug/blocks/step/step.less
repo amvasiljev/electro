@@ -1,9 +1,27 @@
 .step {
     width: 170px;
 
+    @media @1024,@768{
+        width: calc(33% - 15px);
+        margin-bottom: 20px;
+        padding: 0 0 0 60px;
+    }
+    @media @320{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+        
+    }
+
     &:last-child {
         padding-left: 60px;
         box-sizing: content-box;
+        @media @320{
+            padding-left: 0;
+            margin-bottom: 0;
+        }
     }
 
     &__image {
@@ -19,6 +37,12 @@
         display: flex;
         position: relative;
 
+        @media @320{
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+        }
+
         &:before {
             content: '';
             display: block;
@@ -29,6 +53,11 @@
             bottom: -10px;
             background-color: @bl;
             border-radius: 5px;
+            @media @320{
+                position: unset;
+                order: 1;
+                margin-top: 8px;
+            }
         }
     }
 
@@ -36,11 +65,18 @@
         font-weight: 500;
         .rem(16);
         color: @bk;
+        @media @320{
+            width: 20px;
+            margin-right: 3px;
+        }
     }
 
     &__text {
         font-weight: 500;
         .rem(16);
         color: @bk;
+        @media @320{
+            width: calc(100% - 42px);
+        }
     }
 }

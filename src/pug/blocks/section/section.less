@@ -39,6 +39,13 @@
         max-width: 1170px;
         margin: 0 auto;
         padding: 100px 0;
+
+        @media @1024,@768{
+            padding: 60px 20px;
+        }
+        @media @320{
+            padding: 60px 17px;
+        }
         
 
         &_main {
@@ -49,6 +56,12 @@
             top: 130px;
             left: 0;
 
+            @media @320{
+               top: unset;
+               bottom: 0;
+               height: 346px;
+               padding: 0;
+            }
         }
 
 
@@ -58,7 +71,7 @@
 
         &_tabs {
             position: relative;
-            height: 600px;
+            height: 450px;
             padding-top: 60px;
         }
         &_advantages{
@@ -112,6 +125,9 @@
             align-items: flex-end;
             margin: 0 auto;
             padding: 0;
+            @media @320{
+                height: 346px;
+            }
         }
 
         &_text {
@@ -126,6 +142,10 @@
             justify-content: space-between;
             padding: 80px 60px 100px 60px;
             background-color: @wt;
+
+            @media @1024,@768{
+                justify-content: center;
+            }
         }
 
         &_advantages {
