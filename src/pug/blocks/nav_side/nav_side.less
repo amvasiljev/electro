@@ -4,10 +4,20 @@
     border-radius: 5px;
     padding: 20px 0;
 
+    @media @768,@320{
+        
+        position: absolute;
+        left: 0;
+        top: 60px;
+    }
+
     &_level{
         &_2{
             padding: 10px 15px;
             display: none;
+            @media @768,@320{
+                position: unset;
+            }
         }
     }
 
@@ -84,11 +94,17 @@
                     background-image: url(/assets/img/arrow_up.svg);
                 }
             }
+            &_invert{
+                &:before{
+                    background-image: url(/assets/img/arrow_down.svg);
+                }
+            }
         }
         
         &_active{
             color: @bk;
         }
+        
 
       
         
