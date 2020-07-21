@@ -3,7 +3,12 @@
 
     &_main {
         position: relative;
-
+       
+        .slick-list{
+            @media @ie{
+                height: 550px;
+            }
+        }
     }
 
     &_services {
@@ -32,6 +37,7 @@
         padding: 98px 0 0 40px;
     }
     
+  
 
 
     &__inner {
@@ -62,6 +68,14 @@
                height: 346px;
                padding: 0;
             }
+
+            @media @ie{
+                top: 430px !important;
+                &_ie{
+                    top: 641px !important;
+                }
+            }
+            
         }
 
 
@@ -71,8 +85,11 @@
 
         &_tabs {
             position: relative;
-            height: 450px;
+            height: 600px;
             padding-top: 60px;
+            @media @320{
+                height: 450px;
+            }
         }
         &_advantages{
             max-width: 845px;
@@ -82,6 +99,11 @@
             margin-top: -70px;
             background-color: @wt;
             padding-bottom: 0;
+
+            @media @320{
+                margin-top: 0;
+                padding: 60px 0 0;
+            }
         }
         &_404{
             background-repeat: no-repeat;
@@ -127,6 +149,8 @@
             padding: 0;
             @media @320{
                 height: 346px;
+                justify-content: center;
+                padding: 17px;
             }
         }
 

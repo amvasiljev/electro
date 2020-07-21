@@ -7,11 +7,18 @@
     @media @1024,@768{
         max-width: 167px;
     }
+    @media @320{
+        width: 50%;
+        
+    }
     
     &_contacts{
         .rem(16);
         line-height: 24px;
         color: @bk;
+        @media @320{
+            .rem(14);
+        }
     }
 
     &_footer{

@@ -2,6 +2,8 @@ $(function () {
   $('.lazy').Lazy();
 });
 
+var userAgent = navigator.userAgent.toLowerCase();
+is_ie = (/trident/gi).test(userAgent) || (/msie/gi).test(userAgent);
 
 
 // inputs
@@ -91,144 +93,145 @@ $('.nav-side__link_group').on('click', function (e) {
 // end nav_side
 
 
+if(is_ie == false){
+  headerScroll($('.burger'))
 
-
-headerScroll($('.burger'))
-
-// choice fixed or mobile menu 
-
-var windowWidth = $(window).width()
-
-if (windowWidth > 1200) {
-
-  // fixed menu
-
-
-  var burgerFixed = $('.burger');
-  var fixedMenu = $('.nav').clone().html();
-  var closeMenuFixed = $('<div>').addClass('nav__close_fixed');
-
-
-
-  burgerFixed.on('click', function () {
-
-    if ($('.nav_fixed').length > 0) {
-
-      $(this).removeClass('burger_close')
-
-      $('.nav_fixed').fadeOut(400);
-      setTimeout(function () {
-        $('.nav_fixed').remove()
-      }, 400)
-      console.log('close');
-    } else {
-
-      $(this).addClass('burger_close')
-
-      $('<div>').addClass('nav_fixed').appendTo('.header_fixed').append(fixedMenu);
-      $('<div>').addClass('nav__other').appendTo($('.nav_fixed'))
-      $('<div>').addClass('nav__other_1').appendTo($('.nav__other'));
-      $('<div>').addClass('nav__other_2').appendTo($('.nav__other'));
-      $('.nav__other').before($('<div>').addClass('nav__title').text('Навигация'))
-
-      $('.nav_fixed').fadeIn(400).css('display', 'flex')
-
-
-      $('.nav_fixed > .nav__item').each(function (indx) {
-        if (indx != 1) {
-          $(this).appendTo($('.nav__other'))
-        }
-      })
-
-      $('.nav__other > .nav__item').each(function (indx) {
-        if ($(this).hasClass('nav__item_group')) {
-          $(this).addClass('nav__item_simple').appendTo($('.nav__other_2'))
-        } else {
-          $(this).addClass('nav__item_simple').appendTo($('.nav__other_1'))
-        }
-      })
-
-
-    }
-
-
-  })
-
-
-
-  // end fixed menu
-
-
-} else {
-
-
-  //mobile menu
-
-  var mobileNav = $('<div>').addClass('nav_mobile');
-  var mobileItems = $('.nav').html();
-  var mobileWrapper = $('<div>').addClass('nav_outer').prependTo('body');
-  var burger = $('.burger');
-  var closeButton = $('<div>').addClass('nav_close');
-  var mobileFake = $('<div>').addClass('nav__fake').prependTo('body');
-
-
-  var search = $('.search').clone().addClass('search_mobile').appendTo(mobileWrapper)
-  inputActive('.search_mobile', 'search__input_active');
-
-  mobileWrapper.append(mobileNav);
-  mobileNav.append(closeButton);
-  mobileNav.append(mobileItems);
-  mobileNav.find('.nav__item').addClass('nav__item_mobile');
-  mobileNav.find('.nav__link').addClass('nav__link_mobile');
-
-
-
-
-  burger.on('click', function () {
-    mobileWrapper.animate({
-      right: 0
-    }, 300).addClass('nav_active');
-    $('body').addClass('stop_scrolling');
-    $(this).attr('data-key', '');
-    mobileFake.show();
-  })
-
-  closeButton.on('click', function () {
-    mobileWrapper.animate({
-      right: '-287px'
-    }, 500).removeClass('nav_active');
-    $('body').removeClass('stop_scrolling');
-    $(this).attr('data-key', 'key');
-    mobileFake.hide();
-  })
-
-
-  mobileFake.on('click', function () {
-    closeButton.trigger('click')
-  })
-
-
-  $('.nav_mobile .nav__link_group').on('click', function (e) {
-    e.preventDefault()
-    var $this = $(this).next('ul');
-    $(this).parent().parent().find('ul').not($this).slideUp()
-    $this.slideToggle()
-
-    $(this).toggleClass('nav__link_open')
-    $('.nav__link_group').not($(this)).removeClass('nav__link_open')
-  })
-
-
-
-  // end mobile menu
+  // choice fixed or mobile menu 
+  
+  var windowWidth = $(window).width()
+  
+  if (windowWidth > 1200) {
+  
+    // fixed menu
+  
+  
+    var burgerFixed = $('.burger');
+    var fixedMenu = $('.nav').clone().html();
+    var closeMenuFixed = $('<div>').addClass('nav__close_fixed');
+  
+  
+  
+    burgerFixed.on('click', function () {
+  
+      if ($('.nav_fixed').length > 0) {
+  
+        $(this).removeClass('burger_close')
+  
+        $('.nav_fixed').fadeOut(400);
+        setTimeout(function () {
+          $('.nav_fixed').remove()
+        }, 400)
+        console.log('close');
+      } else {
+  
+        $(this).addClass('burger_close')
+  
+        $('<div>').addClass('nav_fixed').appendTo('.header_fixed').append(fixedMenu);
+        $('<div>').addClass('nav__other').appendTo($('.nav_fixed'))
+        $('<div>').addClass('nav__other_1').appendTo($('.nav__other'));
+        $('<div>').addClass('nav__other_2').appendTo($('.nav__other'));
+        $('.nav__other').before($('<div>').addClass('nav__title').text('Навигация'))
+  
+        $('.nav_fixed').fadeIn(400).css('display', 'flex')
+  
+  
+        $('.nav_fixed > .nav__item').each(function (indx) {
+          if (indx != 1) {
+            $(this).appendTo($('.nav__other'))
+          }
+        })
+  
+        $('.nav__other > .nav__item').each(function (indx) {
+          if ($(this).hasClass('nav__item_group')) {
+            $(this).addClass('nav__item_simple').appendTo($('.nav__other_2'))
+          } else {
+            $(this).addClass('nav__item_simple').appendTo($('.nav__other_1'))
+          }
+        })
+  
+  
+      }
+  
+  
+    })
+  
+  
+  
+    // end fixed menu
+  
+  
+  } else {
+  
+  
+    //mobile menu
+  
+    var mobileNav = $('<div>').addClass('nav_mobile');
+    var mobileItems = $('.nav').html();
+    var mobileWrapper = $('<div>').addClass('nav_outer').prependTo('body');
+    var burger = $('.burger');
+    var closeButton = $('<div>').addClass('nav_close');
+    var mobileFake = $('<div>').addClass('nav__fake').prependTo('body');
+  
+  
+    var search = $('.search').clone().addClass('search_mobile').appendTo(mobileWrapper)
+    inputActive('.search_mobile', 'search__input_active');
+  
+    mobileWrapper.append(mobileNav);
+    mobileNav.append(closeButton);
+    mobileNav.append(mobileItems);
+    mobileNav.find('.nav__item').addClass('nav__item_mobile');
+    mobileNav.find('.nav__link').addClass('nav__link_mobile');
+  
+  
+  
+  
+    burger.on('click', function () {
+      mobileWrapper.animate({
+        right: 0
+      }, 300).addClass('nav_active');
+      $('body').addClass('stop_scrolling');
+      $(this).attr('data-key', '');
+      mobileFake.show();
+    })
+  
+    closeButton.on('click', function () {
+      mobileWrapper.animate({
+        right: '-287px'
+      }, 500).removeClass('nav_active');
+      $('body').removeClass('stop_scrolling');
+      $(this).attr('data-key', 'key');
+      mobileFake.hide();
+    })
+  
+  
+    mobileFake.on('click', function () {
+      closeButton.trigger('click')
+    })
+  
+  
+    $('.nav_mobile .nav__link_group').on('click', function (e) {
+      e.preventDefault()
+      var $this = $(this).next('ul');
+      $(this).parent().parent().find('ul').not($this).slideUp()
+      $this.slideToggle()
+  
+      $(this).toggleClass('nav__link_open')
+      $('.nav__link_group').not($(this)).removeClass('nav__link_open')
+    })
+  
+  
+  
+    // end mobile menu
+  }
+  
+  // end choice fixed or mobile menu 
+  
 }
 
-// end choice fixed or mobile menu 
 
 
 
-
-
+  
 
 
 
@@ -236,6 +239,9 @@ if (windowWidth > 1200) {
 
 
 function headerScroll(burgerFixed) {
+
+  
+
   var windowHeight = $(document).height();
   if (windowHeight > 1080) {
     $(document).scroll(function () {
@@ -259,8 +265,15 @@ function headerScroll(burgerFixed) {
           $('section').eq(0).css('paddingTop', '190')
           $('.section__inner_main').css('bottom', '0')
         }else{
-          $('section').eq(0).css('paddingTop', '211')
-          $('.section__inner_main').css('top', '341')
+
+          if(is_ie){
+            $('section').eq(0).css('paddingTop', '211')
+            $('.section__inner_main').addClass('section__inner_main_ie').css('top', '641')
+          }else{
+            $('section').eq(0).css('paddingTop', '211')
+            $('.section__inner_main').css('top', '341')
+          }
+          
         }
 
       } else {
@@ -280,6 +293,11 @@ function headerScroll(burgerFixed) {
 
         $('section').eq(0).css('paddingTop', '0')
         $('.section__inner_main').css('top', '130')
+
+        if(is_ie){
+          $('.section__inner_main').removeClass('section__inner_main_ie')
+        }
+        
       }
 
     })
@@ -429,6 +447,8 @@ $('.slider__box_rev').slick({
     }]
 });
 
+
+
 $('.slider__box_team').slick({
   lazyLoad: 'ondemand',
   speed: 300,
@@ -438,7 +458,31 @@ $('.slider__box_team').slick({
   nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next.png" alt="">',
   prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
   appendArrows: $('.slider__arrows_team'),
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
+        prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
+      }
+    }]
 });
+
+
+
 
 $('.slider__box_work').slick({
   lazyLoad: 'ondemand',

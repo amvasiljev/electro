@@ -11,6 +11,15 @@
     justify-content: space-between;
     padding: 60px 100px 60px 60px;
 
+    @media @768{
+        padding: 30px;
+        height: unset;
+    }
+    @media @320{
+        padding: 30px 20px 40px;
+        height: unset;
+    }
+
     &_offer{
         height: 490px;
     }
@@ -23,6 +32,10 @@
 
     &__heading{
         width: calc(45% - 15px);
+        
+        @media @320{
+            width: 100%;
+        }
         &_author{
             width: 435px;
         }
@@ -33,11 +46,22 @@
         line-height: 120%;
         color: @wt;
         margin-bottom: 18px;
+        @media @768{
+            .rem(25);
+        }
+        @media @320{
+            .rem(22);
+            margin-bottom: 12px;
+        }
     }
     &__subtitle{
         .rem(16);
         color: @wt;
         line-height: 150%;
+        @media @320{
+            .rem(14);
+            margin-bottom: 25px;
+        }
     }
 
     &__form{
@@ -45,6 +69,10 @@
         display: flex;
         flex-flow: wrap;
         justify-content: space-between;
+        @media @320{
+            width: 100%;
+            margin-bottom: 8px;
+        }
 
         &_author{
             width: 260px;
@@ -61,6 +89,9 @@
         height: 50px;
         border-radius: 5px;
         padding: 0 20px 0 10px;
+        @media @320{
+            width: 100%;
+        }
         &_author{
             width: 100%;
         }
@@ -108,6 +139,9 @@
             .rem(12);
             color: @consent;
             margin-right: 5px;
+        }
+        @media @320{
+            margin-bottom: 18px;
         }
 
     }

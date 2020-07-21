@@ -5,6 +5,10 @@
     justify-content: center;
     padding: 0 0 90px 0;
 
+    @media @320{
+        width: calc(50% - 15px);
+        padding: 0 35px 50px;
+    }
 
     &__inner {
         width: 140px;
@@ -44,6 +48,8 @@
         font-weight: 500;
         .rem(16);
         color: @wt;
-
+        @media @320{
+            .rem(14);
+        }
     }
 }

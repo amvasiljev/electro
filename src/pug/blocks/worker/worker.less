@@ -4,6 +4,10 @@
     flex-direction: column;
     margin: 0 20px;
 
+    @media @320{
+        margin: 0 10px;
+        height: 234px;
+    }
     &_page{
         width: calc(33% - 20px);
         margin: 0;
@@ -35,6 +39,10 @@
         align-items: flex-end;
         transition: all 0.1s;
         padding: 17px 20px;
+
+        @media @320{
+            height: calc(100% - 25px);
+        }
 
         &_active{
             background: @worker;
@@ -68,6 +76,9 @@
         font-weight: 500;
         margin-top: 10px;
         color: @bk;
+        @media @320{
+            .rem(14);
+        }
     }
     &__exp{
         display: inline-block;
