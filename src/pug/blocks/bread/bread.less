@@ -11,6 +11,12 @@
         @media @1024,@768{
             padding: 0 20px;
         }
+        @media @320{
+            min-height: 55px;
+            height: unset;
+            padding: 10 17px;
+
+        }
     }
     &__link{
         .rem(16);
@@ -24,10 +30,16 @@
         &:hover,&:focus,&:active{
             color: @bk;
         }
+        @media @320{
+            .rem(12)
+        }
     }
     &__item{
         .rem(16);
         font-weight: normal;
         color: @bk;
+        @media @320{
+            .rem(12)
+        }
     }
 }
