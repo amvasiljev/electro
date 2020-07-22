@@ -70,11 +70,11 @@ p {
   // margin: 28px 0;
   margin-bottom: 28px;
 
-  @media @320{
+  @media @320 {
     .rem(14);
     line-height: 26px;
     margin-bottom: 20;
-    -webkit-text-size-adjust:100%;
+    -webkit-text-size-adjust: 100%;
   }
 }
 
@@ -96,3 +96,41 @@ p {
 // .input_focus{
 //   box-shadow: @boxF1;
 // }
+
+blockquote {
+  max-width: 860px;
+  width: 100%;
+  .rem(24);
+  line-height: 40px;
+  font-weight: normal;
+  color: @bk;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+
+  @media @320{
+    .rem(18);
+    line-height: 34px;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    flex: 0 0 3px;
+    background-color: @red;
+    margin-top: 20px;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    flex: 0 0 3px;
+    background-color: @red;
+    margin-bottom: 20px;
+  }
+}

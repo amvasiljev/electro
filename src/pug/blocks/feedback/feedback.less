@@ -28,16 +28,39 @@
         padding: 50px 60px 60px 40px;
         background-position: center center;
         justify-content: space-between;
+
+        @media @1024{
+            height: unset;
+         
+        }
+        @media @768{
+           height: unset;
+           margin-bottom: 60px;
+        }
+        @media @320{
+           height: unset;
+           margin-bottom: 60px;
+        }
     }
 
     &__heading{
         width: calc(45% - 15px);
         
-        @media @320{
-            width: 100%;
-        }
+        
         &_author{
             width: 435px;
+            @media @1024{
+                order: 1;
+            }
+            @media @768{
+                width: calc(50% - 15px);
+                
+                margin-bottom: 20px;
+            }
+            @media @320{
+                width: 100%;
+                padding: 30px 0 25px;
+            }
         }
     }
     &__title{
@@ -79,7 +102,19 @@
             flex-direction: column;
             flex: 0 0 260px;
             justify-content: space-between;
-            
+            @media @1024{
+                order: 2;
+            }
+            @media @768{
+                width: 50%;
+                flex: 0 0 50%;
+            }
+            @media @320{
+                width: 100%;
+                flex: 0 0 100%;
+                max-width: 414px;
+                margin-bottom: 8px;
+            }
         }
     }
     &__input{

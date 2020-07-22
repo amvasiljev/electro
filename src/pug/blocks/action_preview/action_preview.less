@@ -5,10 +5,16 @@
         flex-flow: wrap;
         padding: 33px 0;
         border-bottom: 1px solid @line;
+        @media @320{
+            padding: 30px 0;
+        }
     }
     &:first-of-type{
         .action-preview__inner{
             padding: 0 0 33px 0;
+            @media @320{
+                padding: 0 0 30px 0;
+            }
         }
     }
     &__image{
@@ -19,29 +25,51 @@
         background-position: center center;
         background-size: cover;
         border-radius: 5px;
+
+        @media @320{
+            max-width: 414px;
+            width: 100%;
+            flex: 0 0 100%;
+            margin-bottom: 13px;
+        }
     }
     &__content{
         margin-left: 40px;
         width: calc(100% - 300px);
         display: flex;
         flex-direction: column;
+        @media @320{
+            width: 100%;
+            margin-left: 0;
+        }
     }
     &__title{
         margin-bottom: 15px;
         font-weight: 500;
         .rem(24);
         color: @bk;
-        
+        @media @320{
+            .rem(18);
+            margin-bottom: 13px;
+        }
     }
     &__text{
         .rem(16);
         line-height: 28px;
         color: @bk;
+        @media @320{
+            .rem(14);
+            line-height: 26px;
+        }
     }
     &__link{
         display: flex;
         justify-content: flex-end;
         flex: 1;
         align-items: flex-end;
+        @media @320{
+            justify-content: flex-start;
+            padding: 10px 0 0 0;
+        }
     }
 }

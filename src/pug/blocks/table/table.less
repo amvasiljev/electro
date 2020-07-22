@@ -1,7 +1,150 @@
+// .table {
+//     padding: 0 0 40px 0;
+
+//     table {
+//         width: 100%;
+//     }
+
+//     @media @320 {
+//         max-width: 550px;
+//     }
+
+//     tr {
+//         height: 64px;
+//         background-color: @wt;
+//         display: flex;
+//         justify-content: space-between;
+//         width: 100%;
+
+//         @media @320 {
+//             height: unset;
+//             flex-direction: column;
+//             padding: 4px 0;
+//         }
+
+//         &:first-child {
+//             height: 53px;
+
+//             @media @320 {
+//                 height: unset;
+//                 flex-direction: column;
+//                 padding: 4px 0;
+//             }
+
+//             th {
+//                 background-color: @wt;
+//             }
+//         }
+
+//         &:nth-child(even) {
+//             td {
+//                 background-color: @sidebar;
+//             }
+//         }
+
+//     }
+
+//     td {
+//         .rem(16);
+//         color: @bk;
+//         font-weight: normal;
+//         background-color: @bg;
+//         height: 58px;
+//         flex: 1;
+//         display: flex;
+//         align-items: center;
+//         padding: 0 27px 0 15px;
+
+//         &:first-child {
+            
+//             border-radius: 5px 0 0 5px;
+//         }
+//         &:last-child {
+            
+//             border-radius: 0 5px 5px 0;
+//         }
+
+//         @media @320 {
+//             flex: 0 0 40px;
+//             justify-content: flex-end;
+//             padding-right: 20px;
+
+//             text-align: right;
+//             padding-top: 10px;
+//             padding-bottom: 20px;
+
+//             &:not(:first-child) {
+//                 .rem(14);
+
+
+//             }
+
+//             &:first-child {
+//                 font-weight: 500;
+//                 border-radius: 5px 5px 0 0;
+//             }
+//             &:last-child{
+//                 border-radius: 0 0 5px 5px;
+//             }
+//         }
+    
+//     }
+
+//     th {
+//         height: 47px;
+//         font-weight: 500;
+//         border-bottom: 3px solid @red;
+//         flex: 1;
+//         display: flex;
+//         align-items: center;
+//         padding: 0 27px 0 15px;
+//         color: @bk;
+
+//         @media @320 {
+//             flex: 0 0 40px;
+//             border-bottom: none;
+//         }
+//     }
+//     &__cell{
+//         &_fake{
+//             flex: 1;
+//             text-align: left;
+//             color: @grey;
+//             .rem(14);
+//             font-weight: normal;
+//             margin-bottom: -15px;
+//         }
+//     }
+
+
+//     &_calc{
+//         padding: 0;
+//         tr{
+//             height: 76px;
+            
+//             th:first-child{
+//                 flex: 0 0 480px;
+//             }
+//             th:not(:first-child){
+//                 justify-content: center;
+//             }
+//             td{
+//                 height: 70px;
+//             }
+//             td:first-child{
+//                 flex: 0 0 480px;
+//             }
+//             td:last-child,
+//             td:nth-last-child(2){
+//                justify-content: flex-end;
+//             }
+//         }
+//     }
+// }
 .table {
     padding: 0 0 40px 0;
 
-    table {
+    &__inner {
         width: 100%;
     }
 
@@ -9,7 +152,7 @@
         max-width: 550px;
     }
 
-    tr {
+    &__row {
         height: 64px;
         background-color: @wt;
         display: flex;
@@ -31,20 +174,20 @@
                 padding: 4px 0;
             }
 
-            th {
+            .table__head {
                 background-color: @wt;
             }
         }
 
         &:nth-child(even) {
-            td {
+            .table__item {
                 background-color: @sidebar;
             }
         }
 
     }
 
-    td {
+    .table__item {
         .rem(16);
         color: @bk;
         font-weight: normal;
@@ -86,7 +229,7 @@
     
     }
 
-    th {
+    .table__head {
         height: 47px;
         font-weight: 500;
         border-bottom: 3px solid @red;
@@ -108,6 +251,7 @@
             color: @grey;
             .rem(14);
             font-weight: normal;
+           
         }
     }
 

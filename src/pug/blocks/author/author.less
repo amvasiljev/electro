@@ -2,6 +2,15 @@
     flex: 0 0 320px;
     display: flex;
     width: 320px;
+
+    @media @1024{
+        order: 3;
+        margin-top: -87px;
+    }
+    @media @768{
+        width: 50%;
+        flex: 0 0 50%;
+    }
     
     &__image {
         width: 130px;

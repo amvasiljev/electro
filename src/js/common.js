@@ -78,7 +78,7 @@ var navSideLinkActive = $('.nav-side_level_1 > li > .nav-side__link_group_active
 var menuParent = $('.nav-side_level_1')
 var menuLevel2
 
-if (windowWidth < 1200) {
+if (windowWidth < 1000) {
 
   firstActive()
   menuParent.find('> li').not(navSideLinkActive.parent()).hide()
@@ -544,7 +544,32 @@ $('.slider__box_work').slick({
   nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next.png" alt="">',
   prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
   appendArrows: $('.slider__arrows_work'),
+  responsive: [{
+    breakpoint: 1024,
+    settings: {
+      slidesToShow: 3,
+    }
+  },
+  {
+    breakpoint: 600,
+    settings: {
+      slidesToShow: 2,
+    }
+  },
+  {
+    breakpoint: 480,
+    settings: {
+      slidesToShow: 1,
+      nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
+      prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
+    }
+  }
+]
 });
+
+
+
+
 $('.slider__box_office').slick({
   lazyLoad: 'ondemand',
   speed: 300,
@@ -630,11 +655,48 @@ worker.each(function (indx) {
 
 // table_mobile
 
+// windowWidth = $(window).width();
+// if (windowWidth <= 550) {
+
+
+//   var cellFirst = $('.table th')
+
+//   cellFirst.each(function (indx) {
+
+
+//     var elem = $(this).html();
+
+//     var index = indx;
+
+//     $('.table tr').each(function () {
+
+//       var cell = $(this).find('td');
+
+//       cell.each(function (indx) {
+
+//         if (indx == index && indx != 0) {
+//           var fake = $('<div>').addClass('table__cell_fake')
+//           fake.prependTo($(this))
+//           fake.append(elem)
+
+//         }
+//       })
+//     })
+
+//   })
+
+
+//   $('.table__row').eq(0).hide()
+//   $('.table tr').eq(0).hide()
+// }
+
+
+
 windowWidth = $(window).width();
 if (windowWidth <= 550) {
 
 
-  var cellFirst = $('.table th')
+  var cellFirst = $('.table .table__head')
 
   cellFirst.each(function (indx) {
 
@@ -643,9 +705,9 @@ if (windowWidth <= 550) {
 
     var index = indx;
 
-    $('.table tr').each(function () {
+    $('.table .table__row').each(function () {
 
-      var cell = $(this).find('td');
+      var cell = $(this).find('.table__item');
 
       cell.each(function (indx) {
 
@@ -664,6 +726,7 @@ if (windowWidth <= 550) {
   $('.table__row').eq(0).hide()
   $('.table tr').eq(0).hide()
 }
+
 
 
 
