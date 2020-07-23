@@ -9,7 +9,7 @@
   height: 600px;
   
   @media @320{
-      height: 570px;
+      height: 400px;
   }
 
   &_contacts{
@@ -102,4 +102,9 @@
     font-weight: 500;
     color: @bk;
     margin-bottom: 30px;
+    @media @320{
+      margin-top: 30px;
+      .rem(18);
+      line-height: 100%;
+    }
 }

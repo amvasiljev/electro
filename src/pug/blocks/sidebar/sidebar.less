@@ -2,11 +2,25 @@
     flex: 0 0 260px;
     width: 260px;
     
-    @media @768,@320{
+    @media @768{
         width: 100%;
         flex: 0 0 100%;
         position: relative;
         min-height: 60px;
         padding: 0 0 20px 0;
+    }
+    @media @320{
+        width: 100%;
+        flex: 0 0 100%;
+        position: relative;
+        min-height: 60px;
+        padding: 0 0 20px 0;
+    }
+
+    &_map{
+        @media @768{
+            flex: 0 0 260px;
+            width: 260px;
+        }
     }
 }

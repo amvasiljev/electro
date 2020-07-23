@@ -16,6 +16,13 @@
     &_side{
         position: unset;
         width: 100%;
+        @media @1024,@768{
+            padding: 0;
+        }
+        @media @320{
+            padding: 0;
+
+        }
     }
     
     
@@ -49,6 +56,11 @@
             padding: 20px;
             box-shadow: none;
             background-color: @wt;
+
+            @media @320{
+                padding: 0;
+                height: unset;
+            }
         }
     }
     &__title{
@@ -65,10 +77,17 @@
         font-weight: 500;
         margin-bottom: 20px;
         color: @bk;
+        @media @320{
+            .rem(18);
+        }
     }
     &__item{
         position: relative;
         width: 100%;
+
+        @media @320{
+            max-width: 260px;
+        }
         &:before {
             content: '';
             display: block;

@@ -82,6 +82,7 @@
         height: 44px;
         transition: all 0.3s;
         cursor: pointer;
+
         &:hover,&:focus{
             background: @bl;
             color: @wt;
@@ -92,6 +93,9 @@
             border: 2px solid @button_1_active;
             color: @wt;
             transition: all 0.3s;
+        }
+        @media @320{
+            padding: 0 20px;
         }
 
     }

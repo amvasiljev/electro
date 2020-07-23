@@ -1,5 +1,5 @@
-mixin sidebar(team,graf)
-    .sidebar
+mixin sidebar(team,graf,cl)
+    .sidebar(class= cl)
         if team
             +nav_side_1()
         else if graf

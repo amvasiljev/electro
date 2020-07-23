@@ -38,6 +38,12 @@
     }
     &_map{
         padding: 98px 0 0 40px;
+        width: calc(100% - 300px);
+
+        @media @320{
+            padding: 0;
+            width: 100%;
+        }
     }
     
   
@@ -114,11 +120,25 @@
                 padding: 60px 0;
             }
         }
+        &_office{
+            @media @320{
+                padding: 60px 0;
+            }
+        }
+        &_docs{
+            @media @320{
+                padding: 60px 0;
+            }
+        }
         &_404{
             background-repeat: no-repeat;
             background-position: 100% center;
             padding: 100px 0 0 0;
             margin-top: 100px;
+            @media @320{
+                margin-top: 0;
+                background-size: contain;
+            }
         }
 
 
@@ -135,6 +155,9 @@
 
         &_single{
             padding: 0 0 100px 0;
+            @media @320{
+                padding: 30px 17px;
+            }
         }
 
 
@@ -381,12 +404,22 @@
         align-items: center;
         justify-content: center;
         padding: 30px 0;
+
+        @media @320{
+            padding: 15px 0 30px;
+        }
     }
 
     &__buttons{
         margin-top: 140px;
         a:not(:last-child){
             margin-right: 10px;
+        }
+        @media @320{
+            margin-top: 90px;
+            a:not(:last-child){
+                margin-bottom: 10px;
+            }
         }
     }
 

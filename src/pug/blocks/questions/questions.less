@@ -2,11 +2,23 @@
     max-width: 400px;
     width: 100%;
     padding: 0 0 60px 0;
+
+    @media @1024,@768{
+        width: calc(50% - 15px);
+       
+    }
+    @media @320{
+        padding: 0 0 40px 0;
+    }
     &__title{
         .rem(20);
         font-weight: 500;
         margin-bottom: 13px;
         color: @bk;
+        @media @320{
+            .rem(16);
+            line-height: 150%;
+        }
     }
     &__item{
         height: 60px;
@@ -19,6 +31,10 @@
         margin-bottom: 10px;
         cursor: pointer;
         color: @bk;
+        @media @320{
+            .rem(14);
+            line-height: 150%;
+        }
         
 
         &:before{
@@ -44,5 +60,9 @@
         font-weight: normal;
         display: none;
         color: @bk;
+        @media @320{
+            .rem(14);
+            line-height: 26px;
+        }
     }
 }
