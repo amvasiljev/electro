@@ -1,18 +1,18 @@
-//- extends ../layout/main
+extends ../layout/main
 
 
 
 
-//- block variables
-//-     -var title = 'calculator'
-//-     -var description = 'calculator'
-//-     -var pageClass = ''
+block variables
+    -var title = 'calculator'
+    -var description = 'calculator'
+    -var pageClass = ''
 
-//- block content
-//-     +bread()
-//-     section.section
-//-         .section__inner.section__inner_single
-//-             +title('Расчет стоимости работ','title_page')
-//-             +offer()
-//-             +calc()
-//-             +feedback_offer()
+block content
+    +bread()
+    section.section
+        .section__inner.section__inner_single
+            +title('Расчет стоимости работ','title_page')
+            +offer()
+            +calc()
+            +feedback_offer()

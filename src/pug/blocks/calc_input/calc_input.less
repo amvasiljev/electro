@@ -1,9 +1,9 @@
 .calc-input {
     display: flex;
-    padding: 8px 0 ;
+    padding: 8px 0;
 
-    @media @320{
-        
+    @media @320 {
+        display: inline-flex;
     }
 
     &__value {
@@ -22,18 +22,19 @@
         line-height: 150%;
         color: @bk;
         background-color: @wt;
-        @media @320{
-            width: 60px; 
+
+        @media @320 {
+            width: 50px;
+            height: 40px;
+            .rem(14);
         }
+
         // @media @300{
         //     width: 50px;
         //     height: 40px; 
         // }
-        &_cart{
-            height: 40px;
-            width: 64px;
-        }
-        &_active{
+
+        &_active {
             border: 1px solid @bl;
         }
     }
@@ -52,22 +53,26 @@
         font-weight: 200;
         .rem(31);
 
-        &:hover,&:active,&:focus{
+        &:hover,
+        &:active,
+        &:focus {
             color: @bk;
         }
 
-        @media @320{
-            width: 45px;
+        @media @320 {
+            width: 40px;
+            height: 40px;
             font-weight: 300;
             .rem(28);
         }
+
         // @media @300{
         //     width: 40px;
         //     height: 40px;
         //     font-weight: 300;
         //     .rem(28);
         // }
-        &_cart{
+        &_cart {
             height: 40px;
             width: 48px;
         }

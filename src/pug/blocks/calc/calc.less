@@ -1,5 +1,8 @@
 .calc{
 
+    @media @320{
+        margin-bottom: 30px;
+    }
     &__box{
         padding: 35px 0 40px;
         &_total{
@@ -15,9 +18,18 @@
         color: @bk;
         font-weight: 500;
 
+        @media @320{
+            .rem(16);
+
+        }
+
         span{
             .rem(30);
             font-weight: 500;
+            @media @320{
+                .rem(25);
+                
+            }
         }
     }
     &__footnote{
@@ -30,11 +42,15 @@
 
     &__consent {
 
-        width: 100%;
+        width: 120px;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 0;
+        @media @320{
+            width: 100%;
+            justify-content: flex-end;
+        }
     }
 
     &__label {

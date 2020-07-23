@@ -83,7 +83,7 @@ if (windowWidth < 1000) {
   firstActive()
   menuParent.find('> li').not(navSideLinkActive.parent()).hide()
 
-  navSideLinkActive.on('click',function(e){
+  navSideLinkActive.on('click', function (e) {
     e.preventDefault()
     $(this).next('ul').slideToggle()
     $(this).toggleClass('nav-side__link_group_invert')
@@ -545,26 +545,26 @@ $('.slider__box_work').slick({
   prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
   appendArrows: $('.slider__arrows_work'),
   responsive: [{
-    breakpoint: 1024,
-    settings: {
-      slidesToShow: 3,
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
+        prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
+      }
     }
-  },
-  {
-    breakpoint: 600,
-    settings: {
-      slidesToShow: 2,
-    }
-  },
-  {
-    breakpoint: 480,
-    settings: {
-      slidesToShow: 1,
-      nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
-      prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
-    }
-  }
-]
+  ]
 });
 
 
@@ -580,26 +580,26 @@ $('.slider__box_office').slick({
   prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
   appendArrows: $('.slider__arrows_office'),
   responsive: [{
-    breakpoint: 1024,
-    settings: {
-      slidesToShow: 3,
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
+        prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
+      }
     }
-  },
-  {
-    breakpoint: 600,
-    settings: {
-      slidesToShow: 3,
-    }
-  },
-  {
-    breakpoint: 480,
-    settings: {
-      slidesToShow: 1,
-      nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
-      prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
-    }
-  }
-]
+  ]
 });
 
 
@@ -613,26 +613,26 @@ $('.slider__box_docs').slick({
   prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev.svg" alt="">',
   appendArrows: $('.slider__arrows_docs'),
   responsive: [{
-    breakpoint: 1024,
-    settings: {
-      slidesToShow: 3,
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
+        prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
+      }
     }
-  },
-  {
-    breakpoint: 600,
-    settings: {
-      slidesToShow: 3,
-    }
-  },
-  {
-    breakpoint: 480,
-    settings: {
-      slidesToShow: 2,
-      nextArrow: '<img class="slider__arrow slider__arrow_next" src="/assets/img/arrow_next_mobile.png" alt="">',
-      prevArrow: '<img class="slider__arrow slider__arrow_prev" src="/assets/img/arrow_prev_mobile.png" alt="">',
-    }
-  }
-]
+  ]
 });
 
 
@@ -700,38 +700,57 @@ worker.each(function (indx) {
 // table_mobile
 
 windowWidth = $(window).width();
-if (windowWidth <= 550) {
+if (windowWidth <= 1000) {
+  $('.table').each(function () {
 
+    var table = $(this);
 
-  var cellFirst = $('.table th')
+    var cellFirst = table.find('th')
 
-  cellFirst.each(function (indx) {
+    cellFirst.each(function (indx) {
+      var elem = $(this).html();
+      var index = indx;
+      table.find('tr').each(function () {
 
+        var cell = $(this).find('td');
 
-    var elem = $(this).html();
+        cell.each(function (indx) {
 
-    var index = indx;
+          if (indx == index && indx != 0) {
+            var fake = $('<div>').addClass('table__cell_fake')
 
-    $('.table tr').each(function () {
+            if(table.hasClass('table_calc')){
+              if (indx > 1) {
+                var temp = $('<div>').addClass('table__cell_temp').text($(this).text())
+                $(this).text('')
+                temp.appendTo($(this))
+              }
+            }else{
+              var temp = $('<div>').addClass('table__cell_temp').text($(this).text())
+              $(this).text('')
+              temp.appendTo($(this))
+            }
 
-      var cell = $(this).find('td');
+            
 
-      cell.each(function (indx) {
+            fake.prependTo($(this))
+            fake.append(elem)
 
-        if (indx == index && indx != 0) {
-          var fake = $('<div>').addClass('table__cell_fake')
-          fake.prependTo($(this))
-          fake.append(elem)
-
-        }
+          }
+        })
       })
+
     })
+
+
+    table.find('.table__row').eq(0).hide()
+    table.find('tr').eq(0).hide()
 
   })
 
 
-  $('.table__row').eq(0).hide()
-  $('.table tr').eq(0).hide()
+
+
 }
 
 
@@ -868,7 +887,16 @@ function inputCalc() {
 
 function calcRow() {
   $('.table_calc tr').each(function (indx) {
-    var price = parseFloat($(this).find('.calc__price').text());
+
+    if(windowWidth < 1000){
+      var price = parseFloat($(this).find('.calc__price .table__cell_temp').text());
+    }else{
+      var price = parseFloat($(this).find('.calc__price').text());
+    }
+    
+
+  
+
     var quantity = $(this).find('.calc-input__value').val()
     var total = price * quantity
     $(this).find('.calc__row').text(total.toFixed(2))
@@ -935,7 +963,7 @@ function calcTotal() {
 
   })
   var format = new Intl.NumberFormat('ru-RU').format(total)
-  $('.calc__total span').text(format + ' руб.')
+  $('.calc__total span').text(format)
 }
 
 
