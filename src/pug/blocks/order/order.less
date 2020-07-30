@@ -18,6 +18,9 @@
     }
     &__form{
         width: 100%;
+        &>label{
+            display: none !important;
+        }
     }
     &__input{
         background-color: @bg;
@@ -34,6 +37,13 @@
             border: 1.5px solid #1047D6;
 
             background-color:@wt;
+        }
+        &_error{
+            border: 1.5px solid @red;
+            color: @red;
+            &::placeholder{
+                color: @red;
+            }
         }
     }
 }

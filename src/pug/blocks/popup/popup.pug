@@ -4,8 +4,8 @@ mixin popup()
         .popup__title Заказать обратный звонок 
         form(action="/").popup__form
         input(type="text" placeholder="Ваше имя").popup__input
-        input(type="text").popup__input.popup__input_phone
-        input(type="text" placeholder="E-mail").popup__input
+        input(type="tel").popup__input.popup__input_phone
+        input(type="email" placeholder="E-mail").popup__input
 
         .popup__policy 
             span Отправляя форму, Вы принимаете

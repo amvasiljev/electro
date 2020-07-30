@@ -119,6 +119,9 @@
                 margin-bottom: 8px;
             }
         }
+        &>label{
+            display: none !important;
+        }
     }
     &__input{
         width: calc(50% - 5px);
@@ -147,6 +150,13 @@
             background: @feedback_active;
             &::placeholder{
                 color: @bl;
+            }
+        }
+        &_error{
+            background-color: #FFE4E4;
+            color: @red;
+            &::placeholder{
+                color: @red;
             }
         }
     }

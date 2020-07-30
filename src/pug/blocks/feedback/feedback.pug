@@ -5,7 +5,7 @@ mixin feedback()
             .feedback__subtitle с 5 группой допуска по электробезопасности
         form(action="/").feedback__form
             input(type="text" placeholder="Ваше имя").feedback__input
-            input(type="text" placeholder="E-mail").feedback__input
+            input(type="text" placeholder="E-mail").feedback__input.feedback__input_error
             input(type="text").feedback__input.feedback__input_phone
             input(type="text" placeholder="Адрес проведения работ").feedback__input
             textarea(name="text", cols="30", rows="10" placeholder="Комментарий").feedback__textarea

@@ -6,8 +6,8 @@ mixin feedback_offer()
         form(action="/").feedback__form
             input(type="text" placeholder="Наименование огранизации").feedback__input.feedback__input_full
             input(type="text" placeholder="Ваше имя").feedback__input
-            input(type="text" placeholder="E-mail").feedback__input
-            input(type="text").feedback__input.feedback__input_phone
+            input(type="email" placeholder="E-mail").feedback__input
+            input(type="tel").feedback__input.feedback__input_phone
             input(type="text" placeholder="Адрес проведения работ").feedback__input
             textarea(name="text", cols="30", rows="10" placeholder="Ваше сообщение").feedback__textarea
             .feedback__policy 

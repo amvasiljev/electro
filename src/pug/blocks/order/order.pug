@@ -2,6 +2,6 @@ mixin order()
     .order
         .order__title Заявка на консультацию
         form(action="/").order__form
-            input.order__input(type="text" placeholder="Ваше имя")
+            input.order__input.order__input_error(type="text" placeholder="Ваше имя")
             input.order__input.order__input_phone(type="text")
             +button('Заказать консультацию','button_red button_submit','submit','')

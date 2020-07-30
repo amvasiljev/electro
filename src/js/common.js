@@ -2,9 +2,26 @@ $(function () {
   $('.lazy').Lazy();
 });
 
+
 var userAgent = navigator.userAgent.toLowerCase();
 is_ie = (/trident/gi).test(userAgent) || (/msie/gi).test(userAgent);
 var windowWidth = $(window).width()
+
+if (!/Android|webOS|iPhone|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+  $(window).resize(function () {
+
+    window.location.reload();
+    $('html, body').animate({
+      scrollTop: 0
+    }, 10)
+  
+  
+  })
+}
+
+
+
+
 
 // inputs
 
@@ -144,7 +161,7 @@ if (windowWidth < 1000) {
 // end nav_side
 
 
-if (is_ie == false) {
+if (is_ie == false) {     
   headerScroll($('.burger'))
 
   // choice fixed or mobile menu 
@@ -186,9 +203,22 @@ if (is_ie == false) {
         $('.nav_fixed').fadeIn(400).css('display', 'flex')
 
 
+        
+        
+
         $('.nav_fixed > .nav__item').each(function (indx) {
           if (indx != 1) {
             $(this).appendTo($('.nav__other'))
+          }else{
+            var level_2 = $(this).find('.nav_level_2 > li')
+            level_2.each(function(){
+          
+              if($(this).hasClass('nav__item_group') == false){
+                $(this).addClass('nav__item_group')
+                $(this).find('a').addClass('nav__link_group')
+                console.log($(this));
+              }
+            })
           }
         })
 
@@ -212,6 +242,7 @@ if (is_ie == false) {
 
 
   } else {
+
 
 
     //mobile menu
@@ -297,7 +328,7 @@ function headerScroll(burgerFixed) {
   if (windowHeight > 1080) {
     $(document).scroll(function () {
       var scrollTop = $(this).scrollTop();
-      if (scrollTop > 100) {
+      if (scrollTop > 500) {
         $('.header').addClass('header_fixed');
         $('.header__inner').addClass('header__inner_fixed');
         $('.logo_header').addClass('logo_fixed');
@@ -1108,18 +1139,24 @@ $(function () {
 // function input active
 
 function inputActive(elem, cl) {
-  $(elem).on('focus', 'input[type="text"]', function () {
+  $(elem).on('focus', 'input[type="text"], input[type="tel"], input[type="email"]', function () {
     $(this).addClass(cl);
     if ($(this).siblings('.search__button').length > 0) {
       $(this).siblings('.search__button').addClass('search__button_active')
     }
   })
-  $(elem).on('blur', 'input[type="text"]', function () {
+  $(elem).on('blur', 'input[type="text"], input[type="tel"], input[type="email"]', function () {
     $(this).removeClass(cl);
     if ($(this).siblings('.search__button').length > 0) {
       $(this).siblings('.search__button').removeClass('search__button_active')
     }
   })
+  
 }
 
 // end function input active
+
+
+
+
+
