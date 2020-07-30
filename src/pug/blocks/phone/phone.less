@@ -26,17 +26,20 @@
     &_footer{
         color: @grey;
         .rem(12);
+        display: flex;
+        align-items: center;
         &:focus,&:hover,&:active{
             color: @grey;
         }
         min-height: 24px;
         background-repeat: no-repeat;
-        background-position: 0 0;
+        background-position: 3px 0;
        
         padding: 0 0 0 30px;
 
         @media @320{
-            .rem(12)
+            .rem(12);
+            margin-bottom: 6px;
         }
         
     }

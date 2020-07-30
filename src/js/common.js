@@ -399,6 +399,8 @@ $('.section__tab').each(function () {
 })
 
 
+
+
 $('.tabs').on('click', 'a', function (e) {
   e.preventDefault()
 
@@ -408,8 +410,8 @@ $('.tabs').on('click', 'a', function (e) {
   var id = $(this).attr('href')
 
   var tabSlider = $(id)
-  $('.section__tab').not(tabSlider).fadeOut().removeClass('section__tab_active')
-  tabSlider.fadeIn().addClass('section__tab_active')
+  $('.section__tab').not(tabSlider).removeClass('section__tab_active')
+  tabSlider.addClass('section__tab_active')
 
 
 })

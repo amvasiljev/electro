@@ -4,13 +4,19 @@
     &_footer{
         color: @grey;
         .rem(12);
-        &:focus,&:hover,&:active{
-            color: @grey;
-        }
         min-height: 24px;
         background-repeat: no-repeat;
         background-position: 0 0;
-       
         padding: 0 0 0 30px;
+        display: flex;
+        align-items: center;
+
+        &:focus,&:hover,&:active{
+            color: @grey;
+        }
+
+        @media @320{
+            margin-bottom: 15px;
+        }
     }
 }
