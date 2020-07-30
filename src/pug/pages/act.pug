@@ -1,25 +1,25 @@
-//- extends ../layout/main
+extends ../layout/main
 
 
 
 
-//- block variables
-//-     -var title = 'actions'
-//-     -var description = 'actions'
+block variables
+    -var title = 'actions'
+    -var description = 'actions'
     
 
-//- block content
-//-     +bread()
-//-     section.section.section_wrapper
-//-         .section__inner.section__inner_wrapper
-//-             +sidebar()
-//-             section.section.section_content
-//-                 +title('Акции','title_page')
-//-                 .section__box
-//-                     +action_preview()
-//-                     +action_preview()
-//-                     +action_preview()
-//-                     +action_preview()
-//-                     +action_preview()
-//-         .section__inner.section__inner_single
-//-             +feedback()
+block content
+    +bread()
+    section.section.section_wrapper
+        .section__inner.section__inner_wrapper
+            +sidebar()
+            section.section.section_content
+                +title('Акции','title_page')
+                .section__box
+                    +action_preview()
+                    +action_preview()
+                    +action_preview()
+                    +action_preview()
+                    +action_preview()
+        .section__inner.section__inner_single
+            +feedback()
