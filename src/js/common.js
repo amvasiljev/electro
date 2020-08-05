@@ -2,6 +2,12 @@ $(function () {
   $('.lazy').Lazy();
 });
 
+// lockAllowed = window.screen.lockOrientation(orientation);
+
+window.addEventListener("orientationchange", function() {
+  location.reload()
+ 
+}, false);
 
 var userAgent = navigator.userAgent.toLowerCase();
 is_ie = (/trident/gi).test(userAgent) || (/msie/gi).test(userAgent);
@@ -14,9 +20,10 @@ if (!/Android|webOS|iPhone|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Ki
     $('html, body').animate({
       scrollTop: 0
     }, 10)
-  
+   
   
   })
+
 }
 
 
@@ -732,11 +739,15 @@ worker.each(function (indx) {
 
 // table_mobile
 
-windowWidth = $(window).width();
+// windowWidth = $(window).width();
+
+// function tableTransform()
+
 if (windowWidth <= 1000) {
   $('.table').each(function () {
 
     var table = $(this);
+
 
     var cellFirst = table.find('th')
 
@@ -1019,9 +1030,12 @@ function allFunction() {
 
 
 // move copyright
-if (windowWidth < 1201) {
-  $('.footer__copyright').appendTo($('.footer__inner'))
-}
+// function moveCopy(){
+//   if (windowWidth < 1201) {
+//   $('.footer__copyright').appendTo($('.footer__inner'))
+// }
+// }
+
 
 
 // end move copyrigh

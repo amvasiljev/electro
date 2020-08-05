@@ -1,6 +1,8 @@
 .header{
     width: 100%;
-    
+    @media @1024,@768{
+        box-shadow: @box_fixed;
+    }
     &_fixed{
         position: fixed;
         box-shadow: @box_fixed;
@@ -21,7 +23,11 @@
         flex-flow: wrap;
         justify-content: space-between;
         
-        @media @1024,@768{
+        @media @1024{
+            padding: 20px;
+            height: 100px;
+        }
+        @media @768{
             padding: 20px;
         }
         @media @320{
@@ -49,6 +55,10 @@
         flex-flow: wrap;
         align-items: center;
         justify-content: flex-start;
+
+        @media @1024{
+            width: auto;
+        }
 
         @media @320{
             width: 100%;

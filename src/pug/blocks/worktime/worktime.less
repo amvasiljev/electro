@@ -19,9 +19,20 @@
     &_side{
         width: 100%;
         .rem(16);
-        span{
-            color: @bk;
+        .worktime__item{
+            color: @grey;
+
+            &_active{
+                color: @bk;
+                span{
+                    color: @bk;
+                }
+            }
         }
+        span{
+            color: @grey;
+        }
+
     }
 
     &__item{

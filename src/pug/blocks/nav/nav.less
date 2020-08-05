@@ -15,20 +15,22 @@
             position: relative;
         }
        
-        &>li:not(:last-child):after{
+        &>li:not(:first-child):after{
             content:'';
             display: block;
             height: 36px;
             width: 1px;
             background-color: @bl1;
             position: absolute;
-            right: 0;
+            left: -2px;
             top: 12px;
             
         }
         &>li:hover{
             background-color: @bl1;
-         
+            &:after{
+                display: none;
+            }
            
         }
         &>li.current{
