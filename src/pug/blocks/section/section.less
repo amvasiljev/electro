@@ -3,7 +3,12 @@
 
     &_main {
         position: relative;
-       
+       @media @1024,@768{
+           margin-top: 100px;
+       }
+       @media @320{
+           margin-top: 190px;
+       }
         .slick-list{
             @media @ie{
                 height: 550px;
@@ -70,12 +75,18 @@
             width: 100%;
             top: 130px;
             left: 0;
+            z-index: 100;
 
             @media @320{
-               top: unset;
-               bottom: 0;
-               height: 346px;
-               padding: 0;
+            //    top: unset;
+            //    bottom: 50px;
+            //    height: 346px;
+            //    padding: 0;
+            top: unset;
+            bottom: -100px;
+            left: 0;
+            height: 550px;
+            z-index: 100;
             }
 
             @media @ie{

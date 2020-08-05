@@ -2,9 +2,11 @@
     .rem(22);
     font-weight: 500;
     color: @bk;
-
+    @media @768{
+        .rem(18)
+    }
     @media @320{
-        .rem(20);
+        .rem(16);
     }
     @media @300{
         .rem(16);
@@ -29,7 +31,7 @@
         display: flex;
         align-items: center;
         &:focus,&:hover,&:active{
-            color: @grey;
+            color: @red;
         }
         min-height: 24px;
         background-repeat: no-repeat;
